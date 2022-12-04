@@ -12,8 +12,8 @@ export default function Home() {
   const [isSelected, setIsSelected] = useState(false);
   const [selectedFile, setSelectedFile] = useState();
   // const [extractedResumeText, setExtractedResumeText] = useState();
-  const [jobDescription, setJobDescription] = useState();
-  const [coverLetterText, setCoverLetterText] = useState();
+  const [jobDescription, setJobDescription] = useState('');
+  const [coverLetterText, setCoverLetterText] = useState('');
 
   const [loading, setLoading] = useState(false);
 
