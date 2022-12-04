@@ -1,0 +1,32 @@
+.resultTextArea {
+  margin: auto;
+  /* width: 100px; */
+  padding: 3rem;
+}
+
+.overallContainer {
+  display: flex;
+  flex-direction: row;
+  padding: 1rem;
+}
+
+
+@media (max-width: 600px) {
+  .grid {
+    width: 100%;
+    flex-direction: column;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .card,
+  .footer {
+    border-color: #222;
+  }
+  .code {
+    background: #111;
+  }
+  .logo img {
+    filter: invert(1);
+  }
+}
