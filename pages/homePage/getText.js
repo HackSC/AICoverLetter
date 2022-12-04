@@ -3,8 +3,13 @@ import pdfjsWorker from "pdfjs-dist/build/pdf.worker.entry";
 pdfjsLib.GlobalWorkerOptions.workerSrc = pdfjsWorker;
 
 const getText = (file) => {
-  const fileObjectUrl = URL.createObjectURL(file);
-  const pdf = pdfjsLib.getDocument(fileObjectUrl);
+  // Added the if check to ensure you only call this in a browser insetead of in the server when compiling the app
+  if (typeof document !== 'undefined') {
+    const fileObjectUrl = URL.createObjectURL(file);
+    const pdf = pdfjsLib.getDocument(fileObjectUrl);
+  
+  // const fileObjectUrl = URL.createObjectURL(file);
+  // const pdf = pdfjsLib.getDocument(fileObjectUrl);
   return pdf.promise.then((pdf) => {
     // get all pages text
     const maxPages = pdf._pdfInfo.numPages;
@@ -31,6 +36,7 @@ const getText = (file) => {
       return texts.join("");
     });
   });
+  }
 };
 
 export default getText;
