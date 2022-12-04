@@ -3,8 +3,6 @@ import styles from "../styles/Home.module.css";
 import { useState } from "react";
 import getText from "./homePage/getText";
 
-// import InputText from "./homePage/components/InputText"
-
 // import getText from "./getText";
 // import Header from "./Header";
 // import Footer from "./Footer";
@@ -59,7 +57,7 @@ export default function Home() {
         }),
       });
       const data = await response.json();
-      console.log(data.result);
+      // console.log(data.result);
       setCoverLetterText(data.result);
     } catch (error) {
       console.log(error);

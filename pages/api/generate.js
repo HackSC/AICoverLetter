@@ -22,8 +22,8 @@ export default async function (req, res) {
 
 function generateAIPrompt(resume, jobDescription) {
   // const capitalizedPrompt = prompt[0].toUpperCase() + prompt.slice(1).toLowerCase();
-  console.log(`Write a Cover Letter Based on This Job Description and Resume: \n\n Job Description: \n ${jobDescription} 
-  \n\n Resume: \n ${resume}`);
+  // console.log(`Write a Cover Letter Based on This Job Description and Resume: \n\n Job Description: \n ${jobDescription} 
+  // \n\n Resume: \n ${resume}`);
   return `Write a Cover Letter Based on This Job Description and Resume: \n\n Job Description: \n ${jobDescription} 
   \n\n Resume: \n ${resume}`;
 }
