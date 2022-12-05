@@ -12,8 +12,8 @@ export default function Home() {
   const [isSelected, setIsSelected] = useState(false);
   const [selectedFile, setSelectedFile] = useState();
   // const [extractedResumeText, setExtractedResumeText] = useState();
-  const [jobDescription, setJobDescription] = useState('');
-  const [coverLetterText, setCoverLetterText] = useState('');
+  const [jobDescription, setJobDescription] = useState("");
+  const [coverLetterText, setCoverLetterText] = useState("");
 
   const [loading, setLoading] = useState(false);
 
@@ -69,11 +69,12 @@ export default function Home() {
 
   const clearText = () => {
     setIsSelected(false);
-    setExtractedText(null);
+    setCoverLetterText(null);
   };
+
   const copyToClipboard = () => {
-    if (extractedText) {
-      navigator.clipboard.writeText(extractedText).catch(() => {
+    if (coverLetterText) {
+      navigator.clipboard.writeText(coverLetterText).catch(() => {
         alert("something went wrong");
       });
     }
@@ -81,60 +82,66 @@ export default function Home() {
 
   return (
     <div className={styles.overallContainer}>
-          <div className="row">
-              <h1>Generate a Personalized Cover Letter</h1>
-              <p>{`Upload Your Resume`}</p>
-              <label className="custom-input">
-                <input
-                  type="file"
-                  name="file"
-                  data-testid="upload-input"
-                  onChange={handleChange}
-                  accept="application/pdf"
-                />
-                {/* Upload PDF to Extract Text */}
-              </label>
+      <div className="row">
+        <h1>Generate a Personalized Cover Letter</h1>
+        <p>{`Upload Your Resume`}</p>
+        <label className="custom-input">
+          <input
+            type="file"
+            name="file"
+            data-testid="upload-input"
+            onChange={handleChange}
+            accept="application/pdf"
+          />
+          {/* Upload PDF to Extract Text */}
+        </label>
+        {isSelected && selectedFile ? (
+          <div>
+            <p>
+              Filename: <strong>{selectedFile.name}</strong>
+            </p>{" "}
+            <p>
+              Filetype: <strong>{selectedFile.type}</strong>
+            </p>
+            <p>
+              Size in bytes: <strong>{selectedFile.size}</strong>
+            </p>
+          </div>
+        ) : (
+          <p></p>
+        )}
 
-              {isSelected && selectedFile ? (
-                <div>
-                  <br />
-                  <p>
-                    Filename: <strong>{selectedFile.name}</strong>
-                  </p>{" "}
-                  <p>
-                    Filetype: <strong>{selectedFile.type}</strong>
-                  </p>
-                  <p>
-                    Size in bytes: <strong>{selectedFile.size}</strong>
-                  </p>
-                </div>
-              ) : (
-                <p>{`Copy the job description below (optional)`}</p>
-              )}
-              <div>
-                {loading ? (
-                  <div className={styles.spinner}>
-                    <Spinner />
-                  </div>
-                ) : (
-                  <Textarea
-                    id="jobDescription"
-                    value={jobDescription}
-                    onChange={(e) => setJobDescription(e.target.value)}
-                    resize="horizontal"
-                    placeholder=""
-                    size="md"
-                    minHeight="400px"
-                  />
-                )}
-              </div>
-              {error && <div>{error}</div>}
+        <div>
+          {loading ? (
+            <div className={styles.spinner}>
+              <b>One moment as we make you look real good :)</b>
+              <br />
+              <br />
+              <Spinner boxSize={24} />
+            </div>
+          ) : (
+            <div>
+              <p>{`Copy the job description below (optional)`}</p>
+              <Textarea
+                id="jobDescription"
+                value={jobDescription}
+                onChange={(e) => setJobDescription(e.target.value)}
+                resize="horizontal"
+                placeholder=""
+                size="md"
+                minHeight="350px"
+              />
+            </div>
+          )}
+        </div>
+        {error && <div>{error}</div>}
 
-              <div>
-                <button className="btn btn-primary" onClick={handleSubmission}>
-                  Submit
-                </button>
-              </div>
+        <div>
+          <br />
+          <button className="btn btn-primary" onClick={handleSubmission}>
+            Submit
+          </button>
+        </div>
       </div>
       <div>
         {coverLetterText && (
