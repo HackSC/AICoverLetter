@@ -6,7 +6,7 @@ This is not an official OpenAI product. This is a personal project and is not af
 # Setup
 ## Install
 Run npm i in the root folder (make sure to use <= node 16)
-## OpenAI API Key
+## API Key
 Add your OPENAI_API_KEY to a .env file 
 ## Running
 npm run dev and npm run build for production 
