@@ -35,7 +35,6 @@ export default function Home() {
   };
 
   async function callGPT(extractedResumeText) {
-    // event.preventDefault();
     setLoading(true);
     try {
       const response = await fetch("/api/generate", {
@@ -49,14 +48,11 @@ export default function Home() {
         }),
       });
       const data = await response.json();
-      // console.log(data.result);
       setCoverLetterText(data.result);
     } catch (error) {
       console.log(error);
     }
     setLoading(false);
-    // setModelOutput(data.result);
-    // setPromptInput("");
   }
 
   const clearText = () => {
