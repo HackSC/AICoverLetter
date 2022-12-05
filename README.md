@@ -1,1 +1,1 @@
-Upload your resume and job description to generate a personalized cover letter
+#Upload your resume and job description to generate a personalized cover letter
