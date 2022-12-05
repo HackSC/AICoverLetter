@@ -3,15 +3,9 @@ import styles from "../styles/Home.module.css";
 import { useState } from "react";
 import getText from "./homePage/getText";
 
-// import getText from "./getText";
-// import Header from "./Header";
-// import Footer from "./Footer";
-// import { Link } from "react-router-dom";
-
 export default function Home() {
   const [isSelected, setIsSelected] = useState(false);
   const [selectedFile, setSelectedFile] = useState();
-  // const [extractedResumeText, setExtractedResumeText] = useState();
   const [jobDescription, setJobDescription] = useState("");
   const [coverLetterText, setCoverLetterText] = useState("");
 
@@ -31,8 +25,6 @@ export default function Home() {
     getText(selectedFile).then(
       (text) => {
         // console.log(text)
-        // setExtractedResumeText(text);
-        // console.log(text);
         callGPT(text);
       },
       (error) => {
