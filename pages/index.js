@@ -4,12 +4,10 @@ import { useState } from "react";
 import getText from "./homePage/getText";
 
 <head>
-  <script
-    async
-    src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4671714996037159"
-    crossorigin="anonymous"
-  ></script>
-</head>;
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4671714996037159"
+     crossorigin="anonymous">
+  </script>
+</head>
 
 export default function Home() {
   const [isSelected, setIsSelected] = useState(false);
