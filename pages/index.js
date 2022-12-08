@@ -2,15 +2,15 @@ import { Textarea, Spinner } from "@chakra-ui/react";
 import styles from "../styles/Home.module.css";
 import { useState } from "react";
 import getText from "./homePage/getText";
-import Footer from "./homePage/components/footer";
+import Head from "next/head"
 
-<head>
+<Head>
   <script
     async
     src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4671714996037159"
     crossorigin="anonymous"
   ></script>
-</head>;
+</Head>;
 
 export default function Home() {
   const [isSelected, setIsSelected] = useState(false);
