@@ -5,7 +5,7 @@ function MyApp({ Component, pageProps }) {
   return (
     <>
       <GoogleAnalytics trackPageViews gaMeasurementId={"G-W621EQN0KS"} />
-      <Component {...pageProps} />;
+      <Component {...pageProps} />
     </>
   );
 }

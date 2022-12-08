@@ -4,6 +4,12 @@
   padding: 3rem;
 }
 
+.largerContainer {
+  display: flex;
+  flex-direction: row;
+  padding: 1rem;
+}
+
 .overallContainer {
   display: flex;
   flex-direction: row;

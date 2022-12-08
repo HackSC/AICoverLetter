@@ -2,7 +2,7 @@ org: coverletteruser
 app: aws-node
 service: aws-node
 
-frameworkVersion: '3'
+frameworkVersion: "3"
 
 provider:
   name: aws
