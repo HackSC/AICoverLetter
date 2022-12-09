@@ -179,15 +179,8 @@ export default function Home() {
             </div>
           )}
         </div>
-      </div>
-      <div>
-        {/* <p style={{position: "absolute", left: "50%", bottom: "10px"}}>© 2022 All rights reserved</p> */}
-      </div>
-      <div className={styles.footer}>
-        Made with ❤️ by <a href="https://linktr.ee/danial_asaria">
-            <u>Danial Asaria</u>
-        </a>
-    </div>
+      </div>  
+      <Footer />
     </>
   );
 }

@@ -5,7 +5,7 @@ import styles from "../../../styles/Home.module.css";
 
   return (
     <div className={styles.footer}>
-        Made with ❤️ by 
+        Made with ❤️ by{" "}
         <a
             href="https://linktr.ee/danial_asaria">
             <u>Danial Asaria</u>
