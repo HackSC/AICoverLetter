@@ -1,13 +1,16 @@
 .resultTextArea {
   margin: auto;
   /* width: 100px; */
-  padding: 3rem;
+  padding: 2rem;
 }
 
 .largerContainer {
   display: flex;
+  justify-content: flex-start;
   flex-direction: row;
   padding: 1rem;
+  margin-top: 50px;
+
 }
 
 .overallContainer {
@@ -16,16 +19,6 @@
   padding: 1rem;
 }
 
-.footer {
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  background-color: lightblue;
-  color: white;
-  text-align: center;
-  padding: 1rem;
-}
 .privacy {
   font-size: 10px;
 }

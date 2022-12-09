@@ -1,11 +1,11 @@
-import { Textarea, Spinner } from "@chakra-ui/react";
+import { Spinner } from "@chakra-ui/react";
 import styles from "../styles/Home.module.css";
 import { useState } from "react";
 import getText from "./homePage/getText";
 import Head from "next/head"
-import Link  from "next/link"
 import Footer from "./homePage/components/Footer";
-import { AiFillHeart } from 'react-icons/fa';
+import { Textarea } from "@nextui-org/react";
+import Header from "./homePage/components/Header";
 
 <Head>
   <script
@@ -86,10 +86,11 @@ export default function Home() {
 
   return (
     <>
+      <Header />
       <div className={styles.largerContainer}>
         <div className="row">
-          <h1>Generate a Personalized Cover Letter</h1>
           <p>{`Upload Your Resume`}</p>
+          <br />
           <label className="custom-input">
             <input
               type="file"
@@ -105,9 +106,9 @@ export default function Home() {
               <p>
                 Filename: <strong>{selectedFile.name}</strong>
               </p>{" "}
-              <p>
+              {/* <p>
                 Filetype: <strong>{selectedFile.type}</strong>
-              </p>
+              </p> */}
               {/* <p>
               Size in bytes: <strong>{selectedFile.size}</strong>
             </p> */}
@@ -125,16 +126,18 @@ export default function Home() {
             ) : (
               <div>
                 <br />
+                <br />
+
                 {/* <p>{`Paste any relevant job information below (optional)`}</p> */}
                 <Textarea
                   id="jobDescription"
                   value={jobDescription}
                   onChange={(e) => setJobDescription(e.target.value)}
                   resize="horizontal"
-                  placeholder="Job Description (optional)"
-                  size="md"
-                  minHeight="350px"
-                  minWidth="350px"
+                  labelPlaceholder="Job Description (optional)"
+                  status="Default"
+                  rows={20}
+                  width="500px"
                 />
               </div>
             )}
@@ -144,7 +147,7 @@ export default function Home() {
           <div>
             <br />
             <button className="btn btn-primary" onClick={handleSubmission}>
-              Submit
+              Generate a Personalized Cover Letter
             </button>
             <p className={styles.privacy}>note: resumes deleted upon creation of cover letter</p>
           </div>
@@ -156,18 +159,19 @@ export default function Home() {
                 <h4>Generated Cover Letter</h4>
                 <Textarea
                   id="resultTextArea"
-                  value={coverLetterText}
+                  initialValue={coverLetterText}
                   // onChange={handleChange}
                   resize="horizontal"
                   placeholder={coverLetterText}
-                  size="md"
-                  minHeight="400px"
-                  minWidth="800px"
+                  status="primary"
+                  rows={28}
+                  width="650px"
                 />
               </div>
-              <div className="parsed-text">
+              {/* <div className="parsed-text">
                 <h4>Parsed Text</h4>
-              </div>
+              </div> */}
+              <br></br>
               <div>
                 <button
                   className="btn btn-outline-secondary"

@@ -1,8 +1,7 @@
-import React, { useState } from "react";
-import styles from "../../../styles/Home.module.css";
+import React from "react";
+import styles from "./Footer.module.css";
 
-  const Footer = () => {
-
+const Footer = () => {
   return (
     <div className={styles.footer}>
         Made with ❤️ by{" "}
