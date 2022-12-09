@@ -186,7 +186,10 @@ export default function Home() {
             }}
             weight="bold"
           >
-             Welcome to the most advanced cover letter generator on the market! Simply upload your resume and provide information about the job you're applying for to get a personalized cover letter that highlights your unique skills and experience. Our platform uses cutting-edge AI technology to craft the perfect cover letter, giving you the best chance of landing your dream job. </Text>
+             Welcome to the most advanced cover letter generator on the market! 
+             Simply upload your resume and provide information about the job you&apos;re applying for to get a personalized cover 
+             letter that highlights your unique skills and experience. Our platform uses cutting-edge AI technology to craft the perfect
+              cover letter, giving you the best chance of landing your dream job. </Text>
           </div>
         )}
           {coverLetterText && (
