@@ -3,6 +3,9 @@ import styles from "../styles/Home.module.css";
 import { useState } from "react";
 import getText from "./homePage/getText";
 import Head from "next/head"
+import Link  from "next/link"
+import Footer from "./homePage/components/footer";
+import { AiFillHeart } from 'react-icons/fa';
 
 <Head>
   <script
@@ -180,6 +183,11 @@ export default function Home() {
       <div>
         {/* <p style={{position: "absolute", left: "50%", bottom: "10px"}}>© 2022 All rights reserved</p> */}
       </div>
+      <div className={styles.footer}>
+        Made with ❤️ by <a href="https://linktr.ee/danial_asaria">
+            <u>Danial Asaria</u>
+        </a>
+    </div>
     </>
   );
 }
