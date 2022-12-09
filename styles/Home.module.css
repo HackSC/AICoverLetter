@@ -38,6 +38,9 @@
 
 .instructions {
   max-width: 500px;
+  font-family: ui-sans-serif,system-ui;
+  margin-top: 20%;
+  padding-left: 2rem;
 }
 
 @media (max-width: 600px) {

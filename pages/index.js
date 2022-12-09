@@ -8,12 +8,18 @@ import { Textarea, Button, Text } from "@nextui-org/react";
 import Header from "../components/Header";
 
 <Head>
+  <title>AI Cover Letter</title>
   <script
     async
     src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4671714996037159"
     crossorigin="anonymous"
   ></script>
+  <link rel="apple-touch-icon" sizes="180x180" href=".././public/favicon_io/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href=".././public/favicon_io/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href=".././public/favicon_io/favicon-16x16.png" />
+  <link rel="manifest" href=".././public/favicon_io/site.webmanifest" />
 </Head>
+
 
 export default function Home() {
   const [isSelected, setIsSelected] = useState(false);
@@ -92,18 +98,6 @@ export default function Home() {
       <Header />
       <div className={styles.largerContainer}>
         <div className="row">
-          <div className={styles.instructions}>
-            <Text
-            h1
-            size={20}
-            css={{
-              textGradient: "45deg, $blue600 -20%, $pink600 50%",
-            }}
-            weight="bold"
-          >
-            Welcome! Upload your resume and enter relevant information on the position you are applying for and we'll create you a personalized cover letter. 
-            </Text>
-          </div>
           {/*Remove default upload button to add custome button that will call handleFileUpload*/}
           <Button shadow onClick={handleClick}>
             {
@@ -176,11 +170,25 @@ export default function Home() {
             </Button>
             <br />
             <p className={styles.privacy}> 
-            We take privacy seriously.  Resumes are deleted upon creation of the cover letter, and no data is stored on our servers.
+            We take privacy seriously.  Resumes are deleted upon creation of the cover letter, <br />
+            and no data is stored on our servers.
             </p>
           </div>
         </div>
         <div>
+        {!coverLetterText && (
+        <div className={styles.instructions}>
+            <Text
+            h1
+            size={20}
+            css={{
+              textGradient: "45deg, $blue600 -20%, $pink600 50%",
+            }}
+            weight="bold"
+          >
+             Welcome to the most advanced cover letter generator on the market! Simply upload your resume and provide information about the job you're applying for to get a personalized cover letter that highlights your unique skills and experience. Our platform uses cutting-edge AI technology to craft the perfect cover letter, giving you the best chance of landing your dream job. </Text>
+          </div>
+        )}
           {coverLetterText && (
             <div className={styles.resultTextArea}>
               <div>
