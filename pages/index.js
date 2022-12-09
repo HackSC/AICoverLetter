@@ -181,9 +181,9 @@ export default function Home() {
             <Text
             h1
             size={20}
-            css={{
-              textGradient: "45deg, $blue600 -20%, $pink600 50%",
-            }}
+            // css={{
+            //   textGradient: "45deg, $blue600 -20%, $pink600 50%",
+            // }}
             weight="bold"
           >
              Welcome to the most advanced cover letter generator on the market! 
