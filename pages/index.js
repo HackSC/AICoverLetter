@@ -92,22 +92,24 @@ export default function Home() {
       <Header />
       <div className={styles.largerContainer}>
         <div className="row">
-        <Text
-        h1
-        size={20}
-        css={{
-          textGradient: "45deg, $blue600 -20%, $pink600 50%",
-        }}
-        weight="bold"
-      >
-        Upload Your Resume
-      </Text>
+          <div className={styles.instructions}>
+            <Text
+            h1
+            size={20}
+            css={{
+              textGradient: "45deg, $blue600 -20%, $pink600 50%",
+            }}
+            weight="bold"
+          >
+            Welcome! Upload your resume and enter relevant information on the position you are applying for and we'll create you a personalized cover letter. 
+            </Text>
+          </div>
           {/*Remove default upload button to add custome button that will call handleFileUpload*/}
           <Button shadow onClick={handleClick}>
             {
               (
                 selectedFile == null 
-                ? ("Click Me") 
+                ? ("Upload Resume") 
                 : "Success!"
               ) 
             } 
@@ -123,23 +125,24 @@ export default function Home() {
               style={{display:'none'}}
             />
           </label>
-          {isSelected && selectedFile && (
+          {/* {isSelected && selectedFile && (
             <div>
               <p>
                 Filename: <strong>{selectedFile.name}</strong>
-              </p>{" "}
+              </p>{" "} */}
               {/* <p>
                 Filetype: <strong>{selectedFile.type}</strong>
               </p> */}
               {/* <p>
               Size in bytes: <strong>{selectedFile.size}</strong>
             </p> */}
-            </div>
-          )}
+            {/* </div>
+          )} */}
 
           <div>
             {loading ? (
               <div className={styles.spinner}>
+                <br />
                 <b>One moment as we make you look real good :)</b>
                 <br />
                 <br />
@@ -169,9 +172,12 @@ export default function Home() {
           <div>
             <br />
             <Button shadow className="btn btn-primary" onClick={handleSubmission}>
-              Generate a Personalized Cover Letter
+              Generate Cover Letter
             </Button>
-            <p className={styles.privacy}>note: resumes deleted upon creation of cover letter</p>
+            <br />
+            <p className={styles.privacy}> 
+            We take privacy seriously.  Resumes are deleted upon creation of the cover letter, and no data is stored on our servers.
+            </p>
           </div>
         </div>
         <div>
@@ -185,8 +191,8 @@ export default function Home() {
                   // onChange={handleChange}
                   resize="horizontal"
                   placeholder={coverLetterText}
-                  status="primary"
-                  rows={28}
+                  status="default"
+                  rows={26}
                   width="650px"
                 />
               </div>
@@ -194,17 +200,23 @@ export default function Home() {
                 <h4>Parsed Text</h4>
               </div> */}
               <br></br>
-              <div>
-                <Button
-                  className="btn btn-outline-secondary"
-                  onClick={copyToClipboard}
-                >
-                  Copy to Clipboard
-                </Button>
-              </div>
-              <Button className="btn btn-secondary" onClick={clearText}>
-                Clear
-              </Button>
+                <div className={styles.resultButtons}>
+                  <div className={styles.copyClipboard}>
+                    <Button
+                      color="success"
+                      onClick={copyToClipboard}
+                    >
+                      Copy to Clipboard
+                    </Button>
+                  </div>
+                  <div className={styles.clearButton}>
+                    <Button 
+                    color="success"
+                    onClick={clearText}>
+                    Clear
+                    </Button>
+                  </div>
+                </div>
             </div>
           )}
         </div>

@@ -23,6 +23,23 @@
   font-size: 10px;
 }
 
+.resultButtons {
+  display: flex;
+  flex-direction: row;
+}
+
+.copyClipboard {
+  padding: 1rem;
+}
+
+.clearButton {
+  padding: 1rem;
+}
+
+.instructions {
+  max-width: 500px;
+}
+
 @media (max-width: 600px) {
   .grid {
     width: 100%;
