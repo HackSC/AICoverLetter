@@ -4,7 +4,7 @@ import { useState } from "react";
 import getText from "./homePage/getText";
 import Head from "next/head"
 import Link  from "next/link"
-import Footer from "./homePage/components/footer";
+import Footer from "./homePage/components/Footer";
 import { AiFillHeart } from 'react-icons/fa';
 
 <Head>
@@ -124,15 +124,17 @@ export default function Home() {
               </div>
             ) : (
               <div>
-                <p>{`Copy the job description below (optional)`}</p>
+                <br />
+                {/* <p>{`Paste any relevant job information below (optional)`}</p> */}
                 <Textarea
                   id="jobDescription"
                   value={jobDescription}
                   onChange={(e) => setJobDescription(e.target.value)}
                   resize="horizontal"
-                  placeholder=""
+                  placeholder="Job Description (optional)"
                   size="md"
                   minHeight="350px"
+                  minWidth="350px"
                 />
               </div>
             )}
@@ -144,6 +146,7 @@ export default function Home() {
             <button className="btn btn-primary" onClick={handleSubmission}>
               Submit
             </button>
+            <p className={styles.privacy}>note: resumes deleted upon creation of cover letter</p>
           </div>
         </div>
         <div>

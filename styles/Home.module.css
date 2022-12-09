@@ -25,7 +25,9 @@
   color: white;
   text-align: center;
   padding: 1rem;
-
+}
+.privacy {
+  font-size: 10px;
 }
 
 @media (max-width: 600px) {
