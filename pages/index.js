@@ -35,7 +35,7 @@ export default function Home() {
   //after submission, set output text and show error element if incorrect file format
   const handleSubmission = () => {
     if (!selectedFile) {
-      setError(`Please upload your resume`);
+      // setError(`Please upload your resume`);
       return;
     }
     getText(selectedFile).then(
