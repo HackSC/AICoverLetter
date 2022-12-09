@@ -4,7 +4,7 @@ import { useState } from "react";
 import getText from "../helperFunctions/getText";
 import Head from "next/head"
 import Footer from "../components/Footer";
-import { Textarea } from "@nextui-org/react";
+import { Textarea, Button, Text } from "@nextui-org/react";
 import Header from "../components/Header";
 
 <Head>
@@ -89,8 +89,16 @@ export default function Home() {
       <Header />
       <div className={styles.largerContainer}>
         <div className="row">
-          <p>{`Upload Your Resume`}</p>
-          <br />
+        <Text
+        h1
+        size={20}
+        css={{
+          textGradient: "45deg, $blue600 -20%, $pink600 50%",
+        }}
+        weight="bold"
+      >
+        Upload Your Resume
+      </Text>
           <label className="custom-input">
             <input
               type="file"
@@ -146,9 +154,9 @@ export default function Home() {
 
           <div>
             <br />
-            <button className="btn btn-primary" onClick={handleSubmission}>
+            <Button shadow className="btn btn-primary" onClick={handleSubmission}>
               Generate a Personalized Cover Letter
-            </button>
+            </Button>
             <p className={styles.privacy}>note: resumes deleted upon creation of cover letter</p>
           </div>
         </div>
@@ -173,16 +181,16 @@ export default function Home() {
               </div> */}
               <br></br>
               <div>
-                <button
+                <Button
                   className="btn btn-outline-secondary"
                   onClick={copyToClipboard}
                 >
                   Copy to Clipboard
-                </button>
+                </Button>
               </div>
-              <button className="btn btn-secondary" onClick={clearText}>
+              <Button className="btn btn-secondary" onClick={clearText}>
                 Clear
-              </button>
+              </Button>
             </div>
           )}
         </div>
