@@ -25,7 +25,7 @@ export default function Home() {
 
   const [error, setError] = useState(null);
   //after upload, get file and display some data, remove possible errors
-  const handleChange = (event) => {
+  const handleFileUpload = (event) => {
     //to prevent typescript null value error
     if (!event.target.files) return;
     setError(null);
@@ -48,6 +48,9 @@ export default function Home() {
         setError(`File could not be uploaded due to this error: ${error}`);
       }
     );
+  };
+  const handleClick = (event) => {
+    document.getElementById("file-upload").click();
   };
 
   async function callGPT(extractedResumeText) {
@@ -99,15 +102,26 @@ export default function Home() {
       >
         Upload Your Resume
       </Text>
+          {/*Remove default upload button to add custome button that will call handleFileUpload*/}
+          <Button shadow onClick={handleClick}>
+            {
+              (
+                selectedFile == null 
+                ? ("Click Me") 
+                : "Success!"
+              ) 
+            } 
+            {console.log(selectedFile)}
+          </Button>
           <label className="custom-input">
             <input
               type="file"
               name="file"
-              data-testid="upload-input"
-              onChange={handleChange}
+              id="file-upload"
+              onChange={handleFileUpload}
               accept="application/pdf"
+              style={{display:'none'}}
             />
-            {/* Upload PDF to Extract Text */}
           </label>
           {isSelected && selectedFile && (
             <div>
