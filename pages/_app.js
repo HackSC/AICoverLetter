@@ -1,5 +1,6 @@
 import "../styles/globals.css";
 import { GoogleAnalytics } from "nextjs-google-analytics";
+import Head from "next/head"
 
 <Head>
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4671714996037159"
