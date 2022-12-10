@@ -13,7 +13,8 @@ import Header from "../components/Header";
     async
     src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4671714996037159"
     crossorigin="anonymous"
-  ></script>
+  >
+  </script>
   <link rel="apple-touch-icon" sizes="180x180" href=".././public/favicon_io/apple-touch-icon.png" />
   <link rel="icon" type="image/png" sizes="32x32" href=".././public/favicon_io/favicon-32x32.png" />
   <link rel="icon" type="image/png" sizes="16x16" href=".././public/favicon_io/favicon-16x16.png" />
