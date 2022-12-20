@@ -7,20 +7,6 @@ import Footer from "../components/Footer";
 import { Textarea, Button, Text } from "@nextui-org/react";
 import Header from "../components/Header";
 
-<Head>
-  <title>AI Cover Letter</title>
-  <script
-    async
-    src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4671714996037159"
-    crossorigin="anonymous"
-  >
-  </script>
-  <link rel="apple-touch-icon" sizes="180x180" href=".././public/favicon_io/apple-touch-icon.png" />
-  <link rel="icon" type="image/png" sizes="32x32" href=".././public/favicon_io/favicon-32x32.png" />
-  <link rel="icon" type="image/png" sizes="16x16" href=".././public/favicon_io/favicon-16x16.png" />
-  <link rel="manifest" href=".././public/favicon_io/site.webmanifest" />
-</Head>
-
 
 export default function Home() {
   const [isSelected, setIsSelected] = useState(false);
@@ -96,6 +82,19 @@ export default function Home() {
 
   return (
     <>
+    <Head>
+      <title>AI Cover Letter</title>
+      <script
+        async
+        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4671714996037159"
+        crossorigin="anonymous"
+      >
+      </script>
+      <link rel="apple-touch-icon" sizes="180x180" href=".././public/favicon_io/apple-touch-icon.png" />
+      <link rel="icon" type="image/png" sizes="32x32" href=".././public/favicon_io/favicon-32x32.png" />
+      <link rel="icon" type="image/png" sizes="16x16" href=".././public/favicon_io/favicon-16x16.png" />
+      <link rel="manifest" href=".././public/favicon_io/site.webmanifest" />
+    </Head>
       <Header />
       <div className={styles.largerContainer}>
         <div className="row">
