@@ -8,7 +8,7 @@ import Header from "../components/Header";
 import Image from "next/image";
 import superHeroResumes from "public/superheroResumes.png";
 import { TypeAnimation } from "react-type-animation";
-import MobileMessage from "components/mobileMessage";
+import MobileMessage from "components/MobileMessage";
 
 export default function Home() {
   const [isSelected, setIsSelected] = useState(false);
