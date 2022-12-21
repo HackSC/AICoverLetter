@@ -15,11 +15,31 @@ export default function Home() {
   const [jobDescription, setJobDescription] = useState("");
   const [coverLetterText, setCoverLetterText] = useState("");
   const [step, setStep] = useState(0);
+  const [firstResumeClick, setFirstResumeClick] = useState(true);
 
   const [loading, setLoading] = useState(false);
 
   const [error, setError] = useState(null);
 
+  const handleUplodResumeNavigationClick = () => {
+    if (firstResumeClick == false) {
+      setStep(0);
+    }
+    else {
+      handleResumeUpload();
+      setFirstResumeClick(false);
+    }
+  }
+
+  const handleUplodPasteJobDescriptionNavigationClick = () => {
+    setFirstResumeClick(false);
+    setStep(1);
+  }
+
+  const handleUplodGenerateCoverLetterNavigationClick = () => {
+    setFirstResumeClick(false);
+    setStep(2);
+  }
   // useEffect(() => {
   //   try {
   //     if (document.getElementById("descriptionTextArea") != null)
@@ -91,6 +111,7 @@ export default function Home() {
       const formattedResult = ltrim(data.result);
       setCoverLetterText(formattedResult);
       setStep(3);
+      setfirstResumeClick(true);
     } catch (error) {
       console.log(error);
     }
@@ -234,13 +255,13 @@ export default function Home() {
           <div className={styles.uploadWrapper}>
             {/*set step to green if completed*/}
             <div
-              onClick={(e) => setStep(0)}
+              onClick={(e) => handleUplodResumeNavigationClick()}
               className={step > 0 ? styles.frameDiv14green : styles.frameDiv14}
             >
               <div className={styles.uPLOADRESUME}>1. UPLOAD YOUR RESUME</div>
             </div>
             <div
-              onClick={(e) => setStep(1)}
+              onClick={(e) => handleUplodPasteJobDescriptionNavigationClick()}
               className={step > 1 ? styles.frameDiv14green : styles.frameDiv14}
             >
               <div className={styles.uPLOADRESUME}>
@@ -248,7 +269,7 @@ export default function Home() {
               </div>
             </div>
             <div
-              onClick={(e) => setStep(2)}
+              onClick={(e) => handleUplodGenerateCoverLetterNavigationClick()}
               className={step > 2 ? styles.frameDiv14green : styles.frameDiv14}
             >
               <div className={`${styles.uPLOADRESUME}`}>
