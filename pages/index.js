@@ -22,7 +22,7 @@ export default function Home() {
   const [error, setError] = useState(null);
 
   const handleUplodResumeNavigationClick = () => {
-    if (firstResumeClick == false) {
+    if (firstResumeClick == false && step != 0) {
       setStep(0);
     }
     else {
