@@ -161,16 +161,16 @@ export default function Home() {
               <TypeAnimation
                   sequence={[
                     'Land your dream job, automatically.', 
-                    2000, // Waits 1s
+                    1500, // Waits 2s
                     'Never waste time on a cover letter again.', 
-                    2000, // Waits 2s
+                    1500, // Waits 2s
                     'Click below to get started!', 
                     2000,
                   ]}
                   wrapper="div"
                   cursor={true}
                   repeat={false}
-                  deletionSpeed={45}
+                  deletionSpeed={65}
                   style={{all: 'inherit'}}
                 />
               </div>
@@ -323,7 +323,7 @@ export default function Home() {
                 </p>
                 <div>
                   <textarea
-                    placeholder="type here"
+                    placeholder="type here ex: software engineer at google"
                     id="descriptionTextArea"
                     // onChange={(e) => setJobDescription(e.target.value)}
                     className={styles.jobDescription}
