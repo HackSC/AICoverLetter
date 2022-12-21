@@ -13,7 +13,8 @@ import MobileMessage from "components/MobileMessage";
 export default function Home() {
   const [isSelected, setIsSelected] = useState(false);
   const [selectedFile, setSelectedFile] = useState(null);
-  const [jobDescription, setJobDescription] = useState("");
+  // const [jobDescription, setJobDescription] = useState("");
+  // const [jobTitle, setJobTitle] = useState("");
   const [coverLetterText, setCoverLetterText] = useState("");
   const [step, setStep] = useState(0);
   const [firstResumeClick, setFirstResumeClick] = useState(true);
@@ -81,11 +82,11 @@ export default function Home() {
       // setError(`Please upload your resume`);
       return;
     }
+    const jobTitle = document.getElementById("jobTitleTextArea").value;
+    const jobDescription = document.getElementById("jobDescriptionTextArea").value;
     getText(selectedFile).then(
       (text) => {
-        // console.log(text)
-        setJobDescription(document.getElementById("descriptionTextArea").value);
-        callGPT(text);
+        callGPT(text,jobDescription,jobTitle);
       },
       (error) => {
         console.error(error);
@@ -98,10 +99,11 @@ export default function Home() {
     document.getElementById("file-upload").click();
   };
 
-  async function callGPT(extractedResumeText) {
+  async function callGPT(extractedResumeText, jobDescription, jobTitle) {
     setStep(2);
     setLoading(true);
-    console.log(jobDescription);
+    console.log(`Write a Cover Letter Based on the following Job Title, Job Description, and Resume: \n\n Job Title: ${jobTitle} \n\n jobDescription: ${jobDescription}
+    \n\n Resume: ${extractedResumeText}`)
     try {
       const response = await fetch("/api/generate", {
         method: "POST",
@@ -110,6 +112,7 @@ export default function Home() {
         },
         body: JSON.stringify({
           resume: extractedResumeText,
+          jobTitle: jobTitle,
           jobDescription: jobDescription,
         }),
       });
@@ -347,28 +350,45 @@ export default function Home() {
               {step == 1 && (
                 <>
                   <div className={styles.enterJobDescription}>
-                    <p className={styles.jobDescriptionTitle}>
-                      ENTER YOUR JOB DESCRIPTION
+                    <p className={styles.jobDescriptionTitleTitle}>
+                      ENTER THE JOB TITLE:
                     </p>
                     <div>
                       <textarea
-                        placeholder="type here ex: software engineer at google"
-                        id="descriptionTextArea"
+                        placeholder="ex: Software Engineer at Google"
+                        id="jobTitleTextArea"
                         // onChange={(e) => setJobDescription(e.target.value)}
                         className={styles.jobDescription}
                         autofocus
-                        rows={5}
-                      ></textarea>
+                        rows={1}
+                      >
+                      </textarea>
+                    </div>
+                    <div className={styles.jobDescriptionArea}> 
+                      <p className={styles.jobDescriptionAreaTitle}>
+                        ENTER THE JOB DESCRIPTION (OPTIONAL):
+                      </p>
+                      <div className={styles.textAreaDescription}>
+                        <textarea
+                          placeholder="ex: We're looking for engineers who bring fresh ideas from all areas, including information retrieval, distributed computing, large-scale system design, networking and data storage, security, artificial intelligence, natural language processing, UI design and mobile; the list goes on and is growing every day. As a software engineer, you will work on a specific project critical to Google’s needs with opportunities to switch teams and projects as you and our fast-paced business grow and evolve."
+                          id="jobDescriptionTextArea"
+                          // onChange={(e) => setJobDescription(e.target.value)}
+                          className={styles.jobDescription}
+                          autofocus
+                          rows={7}
+                        >
+                        </textarea>
+                      </div>
                     </div>
                   </div>
-                  <div
-                    className={styles.frameDiv17}
-                    onClick={(e) => generateCoverLetter()}
-                  >
-                    <div className={styles.generateCoverLetterButton}>
-                      {`Generate Cover Letter ->`}
+                    <div
+                      className={`${styles.frameDiv17} ${styles.jobDescriptionCoverLetterButton}`}
+                      onClick={(e) => generateCoverLetter()}
+                    >
+                      <div className={styles.generateCoverLetterButton}>
+                        {`Generate Cover Letter ->`}
+                      </div>
                     </div>
-                  </div>
                 </>
               )}
               {step >= 2 &&
@@ -384,9 +404,9 @@ export default function Home() {
                           id="resultTextArea"
                           defaultValue={coverLetterText}
                           // onChange={(e) => setJobDescription(e.target.value)}
-                          className={styles.jobDescription}
+                          className={styles.resultJobTextArea}
                           autofocus
-                          rows={5}
+                          rows={10}
                         ></textarea>
                       </div>
                     </div>

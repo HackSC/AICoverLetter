@@ -236,19 +236,19 @@
   height: 559px;
   flex-shrink: 0;
   align-items: flex-start;
-  gap: 52px;
+  gap: 22px;
   font-size: var(--h1-size);
 }
 
 .appSection {
   border-radius: 20px;
   background-color: var(--color-gray-400);
-  height: 568px;
+  height: 600px;
   flex-shrink: 0;
   flex-direction: column;
   padding: 54px 49px;
   align-items: flex-end;
-  gap: 61px;
+  gap: 31px;
   text-align: center;
   font-size: var(--font-size-sm);
   color: var(--color-gray-300);
@@ -358,7 +358,8 @@
   font-size: 14.17px;
   color: var(--color-white);
 }
-.generateCoverLetterButton {
+.generateCoverLetterButton
+ {
   flex: 1;
   position: relative;
   line-height: 81.5%;
@@ -366,6 +367,11 @@
   display: inline-block;
   animation: movebtn 3s ease-in-out infinite;
 }
+
+.jobDescriptionCoverLetterButton {
+
+}
+
 .appSection,
 .frameDiv17 {
   align-self: stretch;
@@ -383,6 +389,7 @@
   color: var(--color-black);
   cursor: pointer;
 }
+
 
 .uploadInner {
   align-self: stretch;
@@ -429,7 +436,18 @@
 }
 
 .resultJobDescription {
-  /* height: 50%; */
+  padding: 20px 40px;
+}
+.enterJobDescription {
+  margin-top: 100px;
+  padding-bottom: 0px;
+}
+
+.resultJobDescription {
+  /* maring */
+}
+
+.jobDescriptionArea {
 }
 
 .textAreaContainer {
@@ -438,11 +456,21 @@
   width: 93%;
 }
 
-.jobDescriptionTitle {
+.jobDescriptionTitleTitle {
   position: absolute;
   top: 5px;
 }
 
+.jobDescriptionAreaTitle {
+  position: absolute;
+  top: 80px;
+}
+
+.resultJobTextArea{
+  
+}
+
+.resultJobTextArea,
 .jobDescription {
   all: unset;
   text-align: left;
@@ -453,6 +481,10 @@
   border-right-style: hidden;
   border-left-style: hidden;
   border--style: hidden; */
+}
+
+.textAreaDescription{
+  margin-top: 25px;
 }
 
 .dRAGDROP {

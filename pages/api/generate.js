@@ -10,7 +10,7 @@ const openai = new OpenAIApi(configuration);
 export default async function (req, res) {
   const completion = await openai.createCompletion({
     model: "text-davinci-003",
-    prompt: generateAIPrompt(req.body.resume, req.body.jobDescription),
+    prompt: generateAIPrompt(req.body.resume, req.body.jobTitle, req.body.jobDescription),
     temperature: 0.7,
     max_tokens: 400,
     top_p: 1,
@@ -20,10 +20,12 @@ export default async function (req, res) {
   res.status(200).json({ result: completion.data.choices[0].text });
 }
 
-function generateAIPrompt(resume, jobDescription) {
-  // const capitalizedPrompt = prompt[0].toUpperCase() + prompt.slice(1).toLowerCase();
-  // console.log(`Write a Cover Letter Based on This Job Description and Resume: \n\n Job Description: \n ${jobDescription}
-  // \n\n Resume: \n ${resume}`);
-  return `Write a Cover Letter Based on This Job Description and Resume: \n\n Job Description: \n ${jobDescription} 
-  \n\n Resume: \n ${resume}`;
+function generateAIPrompt(resume, jobTitle, jobDescription) {
+  return `Write a SOPHISTICATED COVER LETTER based on the following Job Title, Job Description, and Resume: \n\n Job Title: ${jobTitle} \n\n Job Description: ${jobDescription}
+  \n\n Resume: ${trimSpaces(resume)}`;
 }
+
+const trimSpaces = (str) => {
+  if (!str) return str;
+  return str.trimStart().trimEnd();
+};
