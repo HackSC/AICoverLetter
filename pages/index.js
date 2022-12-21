@@ -7,7 +7,8 @@ import { Textarea, Button, Text } from "@nextui-org/react";
 import Header from "../components/Header";
 import Image from "next/image";
 import superHeroResumes from "public/superheroResumes.png";
-import { TypeAnimation } from 'react-type-animation';
+import { TypeAnimation } from "react-type-animation";
+import MobileMessage from "components/mobileMessage";
 
 export default function Home() {
   const [isSelected, setIsSelected] = useState(false);
@@ -16,30 +17,35 @@ export default function Home() {
   const [coverLetterText, setCoverLetterText] = useState("");
   const [step, setStep] = useState(0);
   const [firstResumeClick, setFirstResumeClick] = useState(true);
-
+  const [mobile, setMobile] = useState(false);
   const [loading, setLoading] = useState(false);
-
   const [error, setError] = useState(null);
+
+  useEffect(() => {
+    if (/Android|iPhone/i.test(navigator.userAgent)) {
+      // This checks if the current device is in fact mobile
+      setMobile(true);
+    }
+  }, [mobile]);
 
   const handleUplodResumeNavigationClick = () => {
     if (firstResumeClick == false && step != 0) {
       setStep(0);
-    }
-    else {
+    } else {
       handleResumeUpload();
       setFirstResumeClick(false);
     }
-  }
+  };
 
   const handleUplodPasteJobDescriptionNavigationClick = () => {
     setFirstResumeClick(false);
     setStep(1);
-  }
+  };
 
   const handleUplodGenerateCoverLetterNavigationClick = () => {
     setFirstResumeClick(false);
     setStep(2);
-  }
+  };
   // useEffect(() => {
   //   try {
   //     if (document.getElementById("descriptionTextArea") != null)
@@ -125,10 +131,10 @@ export default function Home() {
 
   const scrollDown = () => {
     window.scrollTo({
-        top: 900,
-        behavior: 'smooth',
+      top: 900,
+      behavior: "smooth",
     });
-};
+  };
 
   // const clearText = () => {
   //   setIsSelected(false);
@@ -148,230 +154,258 @@ export default function Home() {
   // };
 
   return (
-    <div className={styles.overallContainer}>
-      <div className={styles.topBlock} />
-      <div className={styles.heroSection}>
-        <div className={styles.row1}>
-          <div className={styles.row1leftcontainer}>
-            <div>
-              <b className={styles.freeBeta}>FREE in BETA</b>
-            </div>
-            <i className={styles.landYourDreamJobAutomatic}>
-              <div style={{ height: '180px' }}>
-              <TypeAnimation
-                  sequence={[
-                    'Land your dream job, automatically.', 
-                    1500, // Waits 2s
-                    'Never waste time on a cover letter again.', 
-                    1500, // Waits 2s
-                    'Click below to get started!', 
-                    2000,
-                  ]}
-                  wrapper="div"
-                  cursor={true}
-                  repeat={false}
-                  deletionSpeed={65}
-                  style={{all: 'inherit'}}
+    <>
+      {mobile && (
+        <div className={styles.mobileContainer}>
+            <MobileMessage />
+        </div>
+      )}
+      {!mobile && (
+        <div className={styles.overallContainer}>
+          <div className={styles.topBlock} />
+          <div className={styles.heroSection}>
+            <div className={styles.row1}>
+              <div className={styles.row1leftcontainer}>
+                <div>
+                  <b className={styles.freeBeta}>FREE in BETA</b>
+                </div>
+                <i className={styles.landYourDreamJobAutomatic}>
+                  <div style={{ height: "180px" }}>
+                    <TypeAnimation
+                      sequence={[
+                        "Land your dream job, automatically.",
+                        1500,
+                        "Never waste time on a cover letter again.",
+                        1500,
+                        "Click below to get started!",
+                        2000,
+                      ]}
+                      wrapper="div"
+                      cursor={true}
+                      repeat={false}
+                      deletionSpeed={65}
+                      style={{ all: "inherit" }}
+                    />
+                  </div>
+                </i>
+                <div className={styles.itOnlyTakes30SecondsToGe}>
+                  It only takes 30 seconds to get a personalized cover letter
+                  that highlights your unique skills and experience using AI.
+                </div>
+                <Button
+                  variant="outlined"
+                  color="black"
+                  className={styles.button}
+                  onClick={scrollDown}
+                >{`CREATE YOUR LETTER ->`}</Button>
+              </div>
+              <div className={styles.row1rightcontainer}>
+                <Image
+                  src={superHeroResumes}
+                  width={500}
+                  height={500}
+                  alt="resume icons"
                 />
               </div>
-            </i>
-            <div className={styles.itOnlyTakes30SecondsToGe}>
-              It only takes 30 seconds to get a personalized cover letter that
-              highlights your unique skills and experience using AI.
-            </div>
-            <Button
-              variant="outlined"
-              color="black"
-              className={styles.button}
-              onClick = {scrollDown}
-            >{`CREATE YOUR LETTER ->`}</Button>
-          </div>
-          <div className={styles.row1rightcontainer}>
-            <Image
-              src={superHeroResumes}
-              width={500}
-              height={500}
-              alt="resume icons"
-            />
-          </div>
-        </div>
-      </div>
-      <div className={styles.statsSection}>
-      <div className={styles.frameDiv5}>
-          <div className={styles.frameDiv6}>
-            <b className={styles.statWidget}>
-              <span className={styles.statFontSize}>86</span>
-              <span className={styles.statPercentSize}>{`% `}</span>
-            </b>
-            <div className={styles.ofRecruitersPreferCandidate}>
-              of job seekers do not personalize their cover letter
             </div>
           </div>
-        </div>
-        <div className={styles.frameDiv5}>
-          <div className={styles.frameDiv6}>
-            <b className={styles.statWidget}>
-              <span className={styles.statFontSize}>83</span>
-              <span className={styles.statPercentSize}>{`% `}</span>
-            </b>
-            <div className={styles.ofRecruitersPreferCandidate}>
-              of recruiters prefer candidates with cover letters
-            </div>
-          </div>
-        </div>
-        <div className={styles.frameDiv5}>
-          <div className={styles.frameDiv6}>
-            <b className={styles.statWidget}>
-              <span className={styles.statFontSize}>59</span>
-              <span className={styles.statPercentSize}>{`% `}</span>
-            </b>
-            <div className={styles.ofRecruitersPreferCandidate}>
-              of cover letters have grammatical errors
-            </div>
-          </div>
-        </div>
-        <div className={styles.frameDiv5}>
-          <div className={styles.frameDiv6}>
-            <b className={styles.statWidget}>
-              <span className={styles.statFontSize}>48</span>
-              <span className={styles.statPercentSize}>{`% `}</span>
-            </b>
-            <div className={styles.ofRecruitersPreferCandidate}>
-              of big tech companies require cover letters
-            </div>
-          </div>
-        </div>
-      </div>
-      <div className={styles.statsSection1}>
-        <div className={styles.frameDiv13}>
-          <i className={styles.createYourCoverLetter}>
-            Create your cover letter
-          </i>
-          <div className={styles.uploadYourResumePasteThe}>
-            Upload your resume, paste the job description, and create!
-          </div>
-        </div>
-        <div className={styles.appSection}>
-          <div className={styles.uploadWrapper}>
-            {/*set step to green if completed*/}
-            <div
-              onClick={(e) => handleUplodResumeNavigationClick()}
-              className={step > 0 ? styles.frameDiv14green : styles.frameDiv14}
-            >
-              <div className={styles.uPLOADRESUME}>1. UPLOAD YOUR RESUME</div>
-            </div>
-            <div
-              onClick={(e) => handleUplodPasteJobDescriptionNavigationClick()}
-              className={step > 1 ? styles.frameDiv14green : styles.frameDiv14}
-            >
-              <div className={styles.uPLOADRESUME}>
-                2. PASTE JOB DESCRIPTION
+          <div className={styles.statsSection}>
+            <div className={styles.frameDiv5}>
+              <div className={styles.frameDiv6}>
+                <b className={styles.statWidget}>
+                  <span className={styles.statFontSize}>86</span>
+                  <span className={styles.statPercentSize}>{`% `}</span>
+                </b>
+                <div className={styles.ofRecruitersPreferCandidate}>
+                  of job seekers do not personalize their cover letter
+                </div>
               </div>
             </div>
-            <div
-              onClick={(e) => handleUplodGenerateCoverLetterNavigationClick()}
-              className={step > 2 ? styles.frameDiv14green : styles.frameDiv14}
-            >
-              <div className={`${styles.uPLOADRESUME}`}>
-                3. GENERATE COVER LETTER
+            <div className={styles.frameDiv5}>
+              <div className={styles.frameDiv6}>
+                <b className={styles.statWidget}>
+                  <span className={styles.statFontSize}>83</span>
+                  <span className={styles.statPercentSize}>{`% `}</span>
+                </b>
+                <div className={styles.ofRecruitersPreferCandidate}>
+                  of recruiters prefer candidates with cover letters
+                </div>
+              </div>
+            </div>
+            <div className={styles.frameDiv5}>
+              <div className={styles.frameDiv6}>
+                <b className={styles.statWidget}>
+                  <span className={styles.statFontSize}>59</span>
+                  <span className={styles.statPercentSize}>{`% `}</span>
+                </b>
+                <div className={styles.ofRecruitersPreferCandidate}>
+                  of cover letters have grammatical errors
+                </div>
+              </div>
+            </div>
+            <div className={styles.frameDiv5}>
+              <div className={styles.frameDiv6}>
+                <b className={styles.statWidget}>
+                  <span className={styles.statFontSize}>48</span>
+                  <span className={styles.statPercentSize}>{`% `}</span>
+                </b>
+                <div className={styles.ofRecruitersPreferCandidate}>
+                  of big tech companies require cover letters
+                </div>
               </div>
             </div>
           </div>
-          {step == 0 && (
-            <div className={styles.frameDiv16}>
-              <div className={styles.uploadWrapper1}>
-                <label className="custom-input">
-                  <input
-                    type="file"
-                    name="file"
-                    id="file-upload"
-                    onChange={handleFileUpload}
-                    accept="application/pdf"
-                    style={{ display: "none" }}
-                  />
-                </label>
+          <div className={styles.statsSection1}>
+            <div className={styles.frameDiv13}>
+              <i className={styles.createYourCoverLetter}>
+                Create your cover letter
+              </i>
+              <div className={styles.uploadYourResumePasteThe}>
+                Upload your resume, paste the job description, and create!
+              </div>
+            </div>
+            <div className={styles.appSection}>
+              <div className={styles.uploadWrapper}>
+                {/*set step to green if completed*/}
                 <div
-                  onClick={(e) => handleResumeUpload()}
-                  className={styles.uploadInner}
+                  onClick={(e) => handleUplodResumeNavigationClick()}
+                  className={
+                    step > 0 ? styles.frameDiv14green : styles.frameDiv14
+                  }
                 >
-                  <img className={styles.icon} alt="" src="../uploadIcon.svg" />
-                  <div className={styles.dRAGDROPYOURRESUMEOrBro}>
-                    <p className={styles.dRAGDROPYOURRESUME}>
-                      <span
-                        className={styles.dRAGDROP}
-                      >{`DRAG & DROP YOUR RESUME`}</span>
-                    </p>
-                    <p className={styles.uSsjsd}>
-                      <span>
-                        {`or `}
-                        <span className={styles.browseFiles}>
-                          browse files
-                        </span>{" "}
-                        on your computer
-                      </span>
-                    </p>
+                  <div className={styles.uPLOADRESUME}>
+                    1. UPLOAD YOUR RESUME
+                  </div>
+                </div>
+                <div
+                  onClick={(e) =>
+                    handleUplodPasteJobDescriptionNavigationClick()
+                  }
+                  className={
+                    step > 1 ? styles.frameDiv14green : styles.frameDiv14
+                  }
+                >
+                  <div className={styles.uPLOADRESUME}>
+                    2. PASTE JOB DESCRIPTION
+                  </div>
+                </div>
+                <div
+                  onClick={(e) =>
+                    handleUplodGenerateCoverLetterNavigationClick()
+                  }
+                  className={
+                    step > 2 ? styles.frameDiv14green : styles.frameDiv14
+                  }
+                >
+                  <div className={`${styles.uPLOADRESUME}`}>
+                    3. GENERATE COVER LETTER
                   </div>
                 </div>
               </div>
+              {step == 0 && (
+                <div className={styles.frameDiv16}>
+                  <div className={styles.uploadWrapper1}>
+                    <label className="custom-input">
+                      <input
+                        type="file"
+                        name="file"
+                        id="file-upload"
+                        onChange={handleFileUpload}
+                        accept="application/pdf"
+                        style={{ display: "none" }}
+                      />
+                    </label>
+                    <div
+                      onClick={(e) => handleResumeUpload()}
+                      className={styles.uploadInner}
+                    >
+                      <img
+                        className={styles.icon}
+                        alt=""
+                        src="../uploadIcon.svg"
+                      />
+                      <div className={styles.dRAGDROPYOURRESUMEOrBro}>
+                        <p className={styles.dRAGDROPYOURRESUME}>
+                          <span
+                            className={styles.dRAGDROP}
+                          >{`DRAG & DROP YOUR RESUME`}</span>
+                        </p>
+                        <p className={styles.uSsjsd}>
+                          <span>
+                            {`or `}
+                            <span className={styles.browseFiles}>
+                              browse files
+                            </span>{" "}
+                            on your computer
+                          </span>
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              )}
+              {step == 1 && (
+                <>
+                  <div className={styles.enterJobDescription}>
+                    <p className={styles.jobDescriptionTitle}>
+                      ENTER YOUR JOB DESCRIPTION
+                    </p>
+                    <div>
+                      <textarea
+                        placeholder="type here ex: software engineer at google"
+                        id="descriptionTextArea"
+                        // onChange={(e) => setJobDescription(e.target.value)}
+                        className={styles.jobDescription}
+                        autofocus
+                        rows={5}
+                      ></textarea>
+                    </div>
+                  </div>
+                  <div
+                    className={styles.frameDiv17}
+                    onClick={(e) => generateCoverLetter()}
+                  >
+                    <div className={styles.generateCoverLetterButton}>
+                      {`Generate Cover Letter ->`}
+                    </div>
+                  </div>
+                </>
+              )}
+              {step >= 2 &&
+                (loading ? (
+                  <div>
+                    <div class={styles.loader}></div>
+                  </div>
+                ) : (
+                  <>
+                    <div className={styles.resultJobDescription}>
+                      <div>
+                        <textarea
+                          id="resultTextArea"
+                          defaultValue={coverLetterText}
+                          // onChange={(e) => setJobDescription(e.target.value)}
+                          className={styles.jobDescription}
+                          autofocus
+                          rows={5}
+                        ></textarea>
+                      </div>
+                    </div>
+                    <div
+                      className={styles.frameDiv17}
+                      onClick={(e) => setStep(1)}
+                    >
+                      <div className={styles.generateCoverLetterButton}>
+                        {`Generate Another Letter ->`}
+                      </div>
+                    </div>
+                  </>
+                ))}
             </div>
-          )}
-          {step == 1 && (
-            <>
-              <div className={styles.enterJobDescription}>
-                <p className={styles.jobDescriptionTitle}>
-                  ENTER YOUR JOB DESCRIPTION
-                </p>
-                <div>
-                  <textarea
-                    placeholder="type here ex: software engineer at google"
-                    id="descriptionTextArea"
-                    // onChange={(e) => setJobDescription(e.target.value)}
-                    className={styles.jobDescription}
-                    autofocus
-                    rows={5}
-                  ></textarea>
-                </div>
-              </div>
-              <div
-                className={styles.frameDiv17}
-                onClick={(e) => generateCoverLetter()}
-              >
-                <div className={styles.generateCoverLetterButton}>
-                  {`Generate Cover Letter ->`}
-                </div>
-              </div>
-            </>
-          )}
-          {step >= 2 &&
-            (loading ? (
-              <div>
-                <div class={styles.loader}></div>
-              </div>
-            ) : (
-              <>
-              <div className={styles.resultJobDescription}>
-                <div>
-                  <textarea
-                    id="resultTextArea"
-                    defaultValue={coverLetterText}
-                    // onChange={(e) => setJobDescription(e.target.value)}
-                    className={styles.jobDescription}
-                    autofocus
-                    rows={5}
-                  ></textarea>
-                </div>
-              </div>
-              <div className={styles.frameDiv17} onClick={(e) => setStep(1)}>
-                  <div className={styles.generateCoverLetterButton}>
-                    {`Generate Another Letter ->`}
-                  </div>
-                </div>
-              </>
-            ))}
+          </div>
+          <Footer />
         </div>
-      </div>
-      <Footer />
-    </div>
+      )}
+    </>
   );
 }
 // <>
