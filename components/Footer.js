@@ -1,9 +1,9 @@
 import React from "react";
 import styles from "./Footer.module.css";
 
-const Footer = () => {
+const Footer = ({mobile}) => {
   return (
-    <div className={styles.footer}>
+    <div className={mobile ? styles.footerMobile : styles.footer}>
       Made with ❤️ by{" "}
       {/*temporarily deciding against linktree as my website includes all links*/}
       <a style={{ color: "white" }} href="https://danialasaria.com/about">
