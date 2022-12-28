@@ -69,13 +69,18 @@
   box-sizing: border-box;
 }
 
-.row1 {
+.row1,
+.row1Mobile {
   display: flex;
   flex-direction: row;
   align-items: flex-start;
   justify-content: flex-start;
   gap: 30px;
   margin-bottom: 70px;
+}
+
+.row1Mobile {
+  margin-bottom: 20px;
 }
 
 .row1leftcontainer {
@@ -135,11 +140,10 @@
   border: 0.4px solid var(--color-gray-100);
   box-sizing: border-box;
   padding: var(--padding-md);
-  align-items: flex-start;
-  justify-content: flex-start;
+  /* align-items: flex-start;
+  justify-content: flex-start; */
   margin-bottom: 10px;
 }
-
 
 .frameDiv6 {
   align-items: center;
@@ -340,7 +344,7 @@
   color: var(--color-gray-200);
   display: flex;
   align-items: center;
-  margin-bottom: 20px;
+  /* margin-bottom: 10px; */
 }
 
 .createYourCoverLetter,

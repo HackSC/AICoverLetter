@@ -133,10 +133,18 @@ export default function Home() {
   };
 
   const scrollDown = () => {
-    window.scrollTo({
-      top: 900,
-      behavior: "smooth",
-    });
+    if (!mobile) {
+      window.scrollTo({
+        top: 900,
+        behavior: "smooth",
+      });
+    }
+    else if (mobile) {
+      window.scrollTo({
+        top: 1786,
+        behavior: "smooth",
+      });
+    }
   };
 
   // const clearText = () => {
@@ -167,7 +175,7 @@ export default function Home() {
         <div className={mobile ? styles.overallContainerMobile : styles.overallContainer}>
           <div className={styles.topBlock} />
           <div className={styles.heroSection}>
-            <div className={styles.row1}>
+            <div className={mobile ? styles.row1Mobile : styles.row1}>
               <div className={mobile ? styles.row1leftcontainerMobile : styles.row1leftcontainer}>
                 <div>
                   <b className={styles.freeBeta}>FREE in BETA</b>
@@ -259,7 +267,7 @@ export default function Home() {
                 </div>
               </div>
             </div>
-            <div className={styles.frameDiv5}>
+            <div className={mobile ? styles.frameDiv5Mobile : styles.frameDiv5}>
               <div className={styles.frameDiv6}>
                 <b className={styles.statWidget}>
                   <span className={styles.statFontSize}>48</span>
