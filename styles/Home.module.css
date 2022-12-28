@@ -45,6 +45,22 @@
   padding-left: 5%;
 }
 
+.overallContainerMobile {
+  position: relative;
+  background-color: #0b0b0b;
+  /* width: 100%; */
+  /* height: 1900px; */
+  overflow: hidden;
+  text-align: left;
+  font-size: 21.39px;
+  color: var(--color-white);
+  font-family: var(--h1);
+  padding-top: 50px;
+  padding-right: 5%;
+  padding-bottom: 50px;
+  padding-left: 5%;
+}
+
 .topBlock {
   position: relative;
   background-color: var(--color-gray-500);
@@ -78,7 +94,24 @@
   justify-content: center; */
 }
 
+.row1leftcontainerMobile {
+  border-radius: var(--br-lg);
+  width: 90%;
+  justify-content: space-between;
+
+  /* background-color: var(--color-gray-500); */
+  /* backdrop-filter: blur(281.51px); */
+  /* border: 0.4px solid var(--color-gray-100); */
+  /* box-sizing: border-box; */
+  /* display: flex;
+  flex-direction: column; */
+  padding: var(--padding-xs) 14px;
+  /* align-items: flex-start;
+  justify-content: center; */
+}
+
 .frameDiv5,
+.frameDiv5Mobile,
 .frameDiv6 {
   display: flex;
   flex-direction: column;
@@ -94,6 +127,19 @@
   align-items: flex-start;
   justify-content: flex-start;
 }
+
+.frameDiv5Mobile {
+  border-radius: var(--br-lg);
+  background-color: var(--color-gray-500);
+  backdrop-filter: blur(281.51px);
+  border: 0.4px solid var(--color-gray-100);
+  box-sizing: border-box;
+  padding: var(--padding-md);
+  align-items: flex-start;
+  justify-content: flex-start;
+  margin-bottom: 10px;
+}
+
 
 .frameDiv6 {
   align-items: center;
@@ -226,11 +272,15 @@
   height: 230px;
 }
 
-.statsSection1 {
+.statsSectionMobile {
   display: flex;
+  justify-content: space-between;
+  margin-bottom: 50px;
+  /* height: 230px; */
   flex-direction: column;
   justify-content: flex-start;
 }
+
 .statsSection1 {
   align-self: stretch;
   height: 559px;
@@ -256,7 +306,8 @@
   position: relative;
 }
 
-.uploadWrapper {
+.uploadWrapper,
+.uploadWrapperMobile {
   display: flex;
   flex-direction: row;
   align-items: flex-start;
@@ -268,6 +319,7 @@
   width: 93%;
   margin-bottom: 10px;
 }
+
 .uploadWrapper1 {
   display: flex;
   justify-content: flex-start;
@@ -279,19 +331,36 @@
   align-items: flex-start;
 }
 
+.createYourCoverLetterMobile {
+  position: relative;
+  font-size: var(--h2-size);
+  line-height: 140.02%;
+  font-weight: 500;
+  font-family: var(--h2);
+  color: var(--color-gray-200);
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
 .createYourCoverLetter,
-.uploadYourResumePasteThe {
+.uploadYourResumePasteThe,
+.uploadYourResumePasteTheMobile {
   position: relative;
   letter-spacing: -0.02em;
   line-height: 102.2%;
   display: inline-block;
   font-weight: 700;
 }
-.uploadYourResumePasteThe {
+.uploadYourResumePasteThe,
+.uploadYourResumePasteTheMobile {
   font-size: var(--h3-size);
   font-weight: 600;
   font-family: var(--h2);
   color: var(--color-gray-200);
+}
+.uploadYourResumePasteTheMobile {
+  padding-bottom: 10px;
 }
 .frameDiv13 {
   display: flex;
@@ -302,11 +371,18 @@
 }
 .frameDiv14,
 .frameDiv14green,
-.uploadWrapper {
+.uploadWrapper,
+.uploadWrapperMobile {
   display: flex;
   flex-direction: row;
   align-items: flex-start;
   cursor: pointer;
+  left: 5px;
+}
+
+.uploadWrapperMobile {
+  left: 5px;
+  font-size: 15px;
 }
 
 .frameDiv14 {
@@ -420,7 +496,9 @@
 }
 
 .resultJobDescription,
-.enterJobDescription {
+.resultJobDescriptionMobile,
+.enterJobDescription,
+.enterJobDescriptionMobile {
   align-self: stretch;
   border-radius: 19px;
   background-color: var(--color-gray-400);
@@ -435,7 +513,8 @@
   /* height: 351px; */
 }
 
-.resultJobDescription {
+.resultJobDescription,
+.resultJobDescriptionMobile {
   padding: 20px 40px;
 }
 .enterJobDescription {
@@ -443,8 +522,14 @@
   padding-bottom: 0px;
 }
 
-.resultJobDescription {
-  /* maring */
+.enterJobDescriptionMobile {
+  margin-top: 120px;
+  font-size: 15px;
+}
+
+.resultJobDescriptionMobile {
+  margin-top: 100px;
+  font-size: 18px;
 }
 
 .jobDescriptionArea {

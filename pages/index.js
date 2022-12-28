@@ -158,23 +158,23 @@ export default function Home() {
 
   return (
     <>
-      {mobile && (
+      {/* {mobile && (
         <div className={styles.mobileContainer}>
             <MobileMessage />
         </div>
-      )}
-      {!mobile && (
-        <div className={styles.overallContainer}>
+      )} */}
+      {/* {!mobile && ( */}
+        <div className={mobile ? styles.overallContainerMobile : styles.overallContainer}>
           <div className={styles.topBlock} />
           <div className={styles.heroSection}>
             <div className={styles.row1}>
-              <div className={styles.row1leftcontainer}>
+              <div className={mobile ? styles.row1leftcontainerMobile : styles.row1leftcontainer}>
                 <div>
                   <b className={styles.freeBeta}>FREE in BETA</b>
                 </div>
                 <i className={styles.landYourDreamJobAutomatic}>
-                  <div style={{ height: "180px" }}>
-                    <TypeAnimation
+                  <div style={{ height: "180px"}}>
+                   {!mobile && <TypeAnimation
                       sequence={[
                         "Land your dream job, automatically.",
                         1500,
@@ -188,8 +188,18 @@ export default function Home() {
                       repeat={false}
                       deletionSpeed={65}
                       style={{ all: "inherit" }}
-                    />
+                    />}
+                    {mobile && 
+                    <div style={{ height: "180px", fontSize: "50px", lineHeight: "60px"}}>
+                      <TypeAnimation
+                      sequence={[
+                      "Welcome to the future of job applications."
+                      ]}
+                      />
+                    </div>
+                    }
                   </div>
+
                 </i>
                 <div className={styles.itOnlyTakes30SecondsToGe}>
                   It only takes 30 seconds to get a personalized cover letter
@@ -202,6 +212,8 @@ export default function Home() {
                   onClick={scrollDown}
                 >{`CREATE YOUR LETTER ->`}</Button>
               </div>
+              {
+              !mobile && 
               <div className={styles.row1rightcontainer}>
                 <Image
                   src={superHeroResumes}
@@ -209,11 +221,12 @@ export default function Home() {
                   height={500}
                   alt="resume icons"
                 />
-              </div>
+              </div> 
+              }
             </div>
           </div>
-          <div className={styles.statsSection}>
-            <div className={styles.frameDiv5}>
+          <div className={mobile ? styles.statsSectionMobile : styles.statsSection}>
+            <div className={mobile ? styles.frameDiv5Mobile : styles.frameDiv5}>
               <div className={styles.frameDiv6}>
                 <b className={styles.statWidget}>
                   <span className={styles.statFontSize}>86</span>
@@ -224,7 +237,7 @@ export default function Home() {
                 </div>
               </div>
             </div>
-            <div className={styles.frameDiv5}>
+            <div className={mobile ? styles.frameDiv5Mobile : styles.frameDiv5}>
               <div className={styles.frameDiv6}>
                 <b className={styles.statWidget}>
                   <span className={styles.statFontSize}>83</span>
@@ -235,7 +248,7 @@ export default function Home() {
                 </div>
               </div>
             </div>
-            <div className={styles.frameDiv5}>
+            <div className={mobile ? styles.frameDiv5Mobile : styles.frameDiv5}>
               <div className={styles.frameDiv6}>
                 <b className={styles.statWidget}>
                   <span className={styles.statFontSize}>59</span>
@@ -258,22 +271,22 @@ export default function Home() {
               </div>
             </div>
           </div>
-          <div className={styles.statsSection1}>
+          <div className={mobile ? styles.statsSectionMobile : styles.statsSection1}>
             <div className={styles.frameDiv13}>
-              <i className={styles.createYourCoverLetter}>
+              <i className={mobile ? styles.createYourCoverLetterMobile : styles.createYourCoverLetter}>
                 Create your cover letter
               </i>
-              <div className={styles.uploadYourResumePasteThe}>
+              <div className={mobile ? styles.uploadYourResumePasteTheMobile : styles.uploadYourResumePasteThe} style={{ paddingBottom: "10px"}}>
                 Upload your resume, paste the job description, and create!
               </div>
             </div>
             <div className={styles.appSection}>
-              <div className={styles.uploadWrapper}>
+              <div className={mobile ? styles.uploadWrapperMobile : styles.uploadWrapper}>
                 {/*set step to green if completed*/}
                 <div
                   onClick={(e) => handleUplodResumeNavigationClick()}
                   className={
-                    step > 0 ? styles.frameDiv14green : styles.frameDiv14
+                    selectedFile ? styles.frameDiv14green : styles.frameDiv14
                   }
                 >
                   <div className={styles.uPLOADRESUME}>
@@ -349,7 +362,7 @@ export default function Home() {
               )}
               {step == 1 && (
                 <>
-                  <div className={styles.enterJobDescription}>
+                  <div className={mobile ? styles.enterJobDescriptionMobile : styles.enterJobDescription}>
                     <p className={styles.jobDescriptionTitleTitle}>
                       ENTER THE JOB TITLE:
                     </p>
@@ -398,7 +411,7 @@ export default function Home() {
                   </div>
                 ) : (
                   <>
-                    <div className={styles.resultJobDescription}>
+                    <div className={mobile ? styles.resultJobDescriptionMobile : styles.resultJobDescription}>
                       <div>
                         <textarea
                           id="resultTextArea"
@@ -424,7 +437,7 @@ export default function Home() {
           </div>
           <Footer />
         </div>
-      )}
+      {/* )} */}
     </>
   );
 }
