@@ -452,10 +452,6 @@
   animation: movebtn 3s ease-in-out infinite;
 }
 
-.jobDescriptionCoverLetterButton {
-
-}
-
 .appSection,
 .frameDiv17 {
   align-self: stretch;
@@ -533,14 +529,12 @@
 .enterJobDescriptionMobile {
   margin-top: 120px;
   font-size: 15px;
+  text-align: left;
 }
 
 .resultJobDescriptionMobile {
   margin-top: 100px;
   font-size: 18px;
-}
-
-.jobDescriptionArea {
 }
 
 .textAreaContainer {
@@ -557,10 +551,6 @@
 .jobDescriptionAreaTitle {
   position: absolute;
   top: 80px;
-}
-
-.resultJobTextArea{
-  
 }
 
 .resultJobTextArea,

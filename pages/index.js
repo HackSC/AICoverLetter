@@ -368,7 +368,7 @@ export default function Home() {
                   </div>
                 </div>
               )}
-              {step == 1 && (
+              {step == 1 && !mobile && (
                 <>
                   <div className={mobile ? styles.enterJobDescriptionMobile : styles.enterJobDescription}>
                     <p className={styles.jobDescriptionTitleTitle}>
@@ -401,6 +401,50 @@ export default function Home() {
                         </textarea>
                       </div>
                     </div>
+                  </div>
+                    <div
+                      className={`${styles.frameDiv17} ${styles.jobDescriptionCoverLetterButton}`}
+                      onClick={(e) => generateCoverLetter()}
+                    >
+                      <div className={styles.generateCoverLetterButton}>
+                        {`Generate Cover Letter ->`}
+                      </div>
+                    </div>
+                </>
+              )}
+             {step == 1 && mobile && (
+                <>
+                  <div className={mobile ? styles.enterJobDescriptionMobile : styles.enterJobDescription}>
+                    <p className={styles.jobDescriptionTitleTitle}>
+                      ENTER THE JOB TITLE AND DESCRIPTION:
+                    </p>
+                    <div>
+                      <textarea
+                        placeholder="ex: Software Engineer at Google working on search engine optimization"
+                        id="jobTitleTextArea"
+                        // onChange={(e) => setJobDescription(e.target.value)}
+                        className={styles.jobDescription}
+                        autofocus
+                        rows={8}
+                      >
+                      </textarea>
+                    </div>
+                    {/* <div className={styles.jobDescriptionArea}> 
+                      <p className={styles.jobDescriptionAreaTitle}>
+                        ENTER THE JOB DESCRIPTION (OPTIONAL):
+                      </p>
+                      <div className={styles.textAreaDescription}>
+                        <textarea
+                          placeholder="ex: We're looking for engineers who bring fresh ideas from all areas, including information retrieval, distributed computing, large-scale system design, networking and data storage, security, artificial intelligence, natural language processing, UI design and mobile; the list goes on and is growing every day. As a software engineer, you will work on a specific project critical to Google’s needs with opportunities to switch teams and projects as you and our fast-paced business grow and evolve."
+                          id="jobDescriptionTextArea"
+                          // onChange={(e) => setJobDescription(e.target.value)}
+                          className={styles.jobDescription}
+                          autofocus
+                          rows={7}
+                        >
+                        </textarea>
+                      </div>
+                    </div> */}
                   </div>
                     <div
                       className={`${styles.frameDiv17} ${styles.jobDescriptionCoverLetterButton}`}
