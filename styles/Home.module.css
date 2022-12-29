@@ -227,8 +227,20 @@
   font-weight: 700;
   font-family: var(--h1);
   margin-bottom: 20px;
-
+  font-size: 81px;
   /* width: 743.59px; */
+}
+
+@media screen and (max-width: 1360px) {
+  .landYourDreamJobAutomatic {
+    font-size: 70px;
+  }
+}
+
+@media screen and (max-width: 1295px) {
+  .landYourDreamJobAutomatic {
+    font-size: 65px;
+  }
 }
 
 .itOnlyTakes30SecondsToGe {
@@ -241,7 +253,6 @@
   display: flex;
   align-items: center;
   margin-bottom: 20px;
-
   /* width: 742.22px; */
 }
 

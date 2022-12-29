@@ -184,12 +184,13 @@ export default function Home() {
                   <div style={{ height: "180px"}}>
                    {!mobile && <TypeAnimation
                       sequence={[
-                        "Land your dream job, automatically.",
-                        1500,
-                        "Never waste time on a cover letter again.",
-                        1500,
-                        "Click below to get started!",
-                        2000,
+                        "Welcome to the future of job applications."
+                        // "Land your dream job, automatically.",
+                        // 1500,
+                        // "Never waste time on a cover letter again.",
+                        // 1500,
+                        // "Click below to get started!",
+                        // 2000,
                       ]}
                       wrapper="div"
                       cursor={true}
