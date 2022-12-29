@@ -6,7 +6,7 @@ import getText from "../helperFunctions/getText";
 import { Textarea, Button, Text } from "@nextui-org/react";
 // import Header from "../components/Header";
 import Image from "next/image";
-import superHeroResumes from "public/superheroResumes.png";
+import superHeroResumes from "public/images/superheroResumes.png";
 import { TypeAnimation } from "react-type-animation";
 // import MobileMessage from "components/MobileMessage";
 import Script from "next/script";
@@ -167,18 +167,6 @@ export default function Home() {
 
   return (
     <>
-      {/* <Script
-        id="Adsense-id"
-        async
-        data-ad-client="ca-pub-4671714996037159"
-        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
-      /> */}
-      {/* {mobile && (
-        <div className={styles.mobileContainer}>
-            <MobileMessage />
-        </div>
-      )} */}
-      {/* {!mobile && ( */}
         <div className={mobile ? styles.overallContainerMobile : styles.overallContainer}>
           <div className={styles.topBlock} />
           <div className={styles.heroSection}>

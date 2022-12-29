@@ -1,6 +1,12 @@
-// tsconfig.json or jsconfig.json
 {
   "compilerOptions": {
-    "baseUrl": "."
+    "baseUrl": ".",
+    "paths": {
+      "@/components/*": ["components/*"],
+      "@/page-components/*": ["page-components/*"],
+      "@/lib/*": ["lib/*"],
+      "@/api-lib/*": ["api-lib/*"],
+      "@/assets/*": ["assets/*"]
+    }
   }
 }
