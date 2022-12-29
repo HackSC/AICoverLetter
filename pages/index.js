@@ -211,7 +211,7 @@ export default function Home() {
                 </i>
                 <div className={styles.itOnlyTakes30SecondsToGe}>
                   It only takes 30 seconds to get a personalized cover letter
-                  that highlights your unique skills and experience using AI.
+                  highlighting your unique skills and experience using AI.
                 </div>
                 <Button
                   variant="outlined"
