@@ -6,7 +6,7 @@ import Script from "next/script";
 function MyApp({ Component, pageProps }) {
   return (
     <>
-      <Script
+      {/* <Script
         async
         src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4671714996037159"
       />
@@ -15,7 +15,7 @@ function MyApp({ Component, pageProps }) {
         async
         data-ad-client="ca-pub-4671714996037159"
         src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
-      />
+      /> */}
       <GoogleAnalytics trackPageViews gaMeasurementId={"G-W621EQN0KS"} />
       <Component {...pageProps} />
     </>

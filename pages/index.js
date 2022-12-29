@@ -1,14 +1,15 @@
 import styles from "../styles/Home.module.css";
 import { useEffect, useState } from "react";
 import getText from "../helperFunctions/getText";
-import Head from "next/head";
-import Footer from "../components/Footer";
+// import Head from "next/head";
+// import Footer from "../components/Footer";
 import { Textarea, Button, Text } from "@nextui-org/react";
-import Header from "../components/Header";
+// import Header from "../components/Header";
 import Image from "next/image";
 import superHeroResumes from "public/superheroResumes.png";
 import { TypeAnimation } from "react-type-animation";
-import MobileMessage from "components/MobileMessage";
+// import MobileMessage from "components/MobileMessage";
+import Script from "next/script";
 
 export default function Home() {
   const [isSelected, setIsSelected] = useState(false);
@@ -166,6 +167,12 @@ export default function Home() {
 
   return (
     <>
+      {/* <Script
+        id="Adsense-id"
+        async
+        data-ad-client="ca-pub-4671714996037159"
+        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+      /> */}
       {/* {mobile && (
         <div className={styles.mobileContainer}>
             <MobileMessage />
