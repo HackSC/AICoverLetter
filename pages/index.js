@@ -7,6 +7,7 @@ import { Textarea, Button, Text } from "@nextui-org/react";
 // import Header from "../components/Header";
 import Image from "next/image";
 import superHeroResumes from "public/images/superheroResumes.png";
+import uploadIcon from "public/images/uploadIcon.svg";
 import { TypeAnimation } from "react-type-animation";
 // import MobileMessage from "components/MobileMessage";
 import Script from "next/script";
@@ -339,16 +340,47 @@ export default function Home() {
                       onClick={(e) => handleResumeUpload()}
                       className={styles.uploadInner}
                     >
-                      <img
+                    {
+                      mobile ? 
+                      <Image
+                      src={uploadIcon}
+                      width={50}
+                      height={50}
+                      alt="resume icons"
+                    />
+                      : <Image
+                      src={uploadIcon}
+                      width={100}
+                      height={100}
+                      alt="resume icons"
+                    />
+                    }
+                      {/* <img
                         className={styles.icon}
                         alt=""
                         src="../uploadIcon.svg"
-                      />
-                      <div className={styles.dRAGDROPYOURRESUMEOrBro}>
+                      /> */}
+                      {/* <div className={styles.dRAGDROPYOURRESUMEOrBro}>
                         <p className={styles.dRAGDROPYOURRESUME}>
                           <span
                             className={styles.dRAGDROP}
                           >{`DRAG & DROP YOUR RESUME`}</span>
+                        </p>
+                        <p className={styles.uSsjsd}>
+                          <span>
+                            {`or `}
+                            <span className={styles.browseFiles}>
+                              browse files
+                            </span>{" "}
+                            on your computer
+                          </span>
+                        </p>
+                      </div> */}
+                      <div className={styles.dRAGDROPYOURRESUMEOrBro}>
+                        <p className={styles.dRAGDROPYOURRESUME}>
+                          <span
+                            className={styles.dRAGDROP}
+                          >{`Browse files on your computer`}</span>
                         </p>
                         <p className={styles.uSsjsd}>
                           <span>
