@@ -400,6 +400,10 @@
   left: 5px;
 }
 
+.uploadWrapper {
+  left: 3vw;
+}
+
 .uploadWrapperMobile {
   left: 5px;
   font-size: 15px;
