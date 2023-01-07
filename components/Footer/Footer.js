@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./Footer.module.css";
 
-const Footer = ({mobile}) => {
+const Footer = ({ mobile }) => {
   return (
     <div className={mobile ? styles.footerMobile : styles.footer}>
       Made with ❤️ by{" "}

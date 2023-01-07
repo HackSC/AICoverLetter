@@ -10,7 +10,11 @@ const openai = new OpenAIApi(configuration);
 export default async function (req, res) {
   const completion = await openai.createCompletion({
     model: "text-davinci-003",
-    prompt: generateAIPrompt(req.body.resume, req.body.jobTitle, req.body.jobDescription),
+    prompt: generateAIPrompt(
+      req.body.resume,
+      req.body.jobTitle,
+      req.body.jobDescription
+    ),
     temperature: 0.7,
     max_tokens: 400,
     top_p: 1,

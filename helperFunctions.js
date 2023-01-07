@@ -2,7 +2,7 @@ import * as pdfjsLib from "pdfjs-dist";
 import pdfjsWorker from "pdfjs-dist/build/pdf.worker.entry";
 pdfjsLib.GlobalWorkerOptions.workerSrc = pdfjsWorker;
 
-const getText = (file) => {
+export const getText = (file) => {
   // Added the if check to ensure you only call this in a browser insetead of in the server when compiling the app
   if (typeof document !== "undefined") {
     const fileObjectUrl = URL.createObjectURL(file);
@@ -39,4 +39,9 @@ const getText = (file) => {
   }
 };
 
-export default getText;
+export const ltrim = (str) => {
+    if (!str) return str;
+    return str.trimStart();
+  };
+
+  
