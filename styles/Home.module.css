@@ -265,6 +265,12 @@
   }
 }
 
+@media screen and (max-width: 500px) {
+  .landYourDreamJobAutomatic {
+    margin-bottom: 120px;
+  }
+}
+
 .itOnlyTakes30Seconds {
   position: relative;
   font-size: var(--h2-size);
@@ -375,11 +381,12 @@
 
 .createYourCoverLetterMobile {
   position: relative;
-  font-size: var(--h2-size);
+  font-size: 45px;
   line-height: 140.02%;
-  font-weight: 500;
-  font-family: var(--h2);
-  color: var(--color-gray-200);
+  font-weight: 700;
+  font-family: var(--h1);
+
+  /* color: var(--color-gray-200); */
   display: flex;
   align-items: center;
   /* margin-bottom: 10px; */

@@ -112,12 +112,12 @@ export default function Home() {
   const scrollDown = () => {
     if (!mobile) {
       window.scrollTo({
-        top: 900,
+        top: 970,
         behavior: "smooth",
       });
     } else if (mobile) {
       window.scrollTo({
-        top: 1786,
+        top: 1890,
         behavior: "smooth",
       });
     }
