@@ -5,7 +5,7 @@ import { TypeAnimation } from "react-type-animation";
 const CompanyTagLine = ({ tagLine, mobile }) => {
   return (
     <i className={styles.landYourDreamJobAutomatic}>
-    <div style={{ height: "180px" }}>
+    <div style={{ height: "140px"}}>
       {!mobile && (
         <TypeAnimation
           sequence={[
@@ -27,9 +27,10 @@ const CompanyTagLine = ({ tagLine, mobile }) => {
       {mobile && (
         <div
           style={{
-            height: "180px",
+            height: "160px",
             fontSize: "50px",
             lineHeight: "60px",
+            marginBottom: "80px",
           }}
         >
           <TypeAnimation

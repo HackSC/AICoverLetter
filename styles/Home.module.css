@@ -240,22 +240,32 @@
 @media screen and (max-width: 1360px) {
   .landYourDreamJobAutomatic {
     font-size: 70px;
+    margin-bottom: 100px;
   }
 }
 
 @media screen and (max-width: 1295px) {
   .landYourDreamJobAutomatic {
     font-size: 65px;
+    margin-bottom: 100px;
+  }
+}
+
+@media screen and (max-width: 1100px) {
+  .landYourDreamJobAutomatic {
+    font-size: 65px;
+    margin-bottom: 140px;
   }
 }
 
 @media screen and (max-width: 900px) {
   .landYourDreamJobAutomatic {
     font-size: 45px;
+    margin-bottom: 60px;
   }
 }
 
-.itOnlyTakes30SecondsToGe {
+.itOnlyTakes30Seconds {
   position: relative;
   font-size: var(--h2-size);
   line-height: 140.02%;
