@@ -117,7 +117,7 @@ export default function Home() {
       });
     } else if (mobile) {
       window.scrollTo({
-        top: 1890,
+        top: 1900,
         behavior: "smooth",
       });
     }
