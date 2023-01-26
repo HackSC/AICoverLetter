@@ -4,6 +4,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Flow+Rounded:wght@400&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@800&display=swap");
 @import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+@import url("https://use.typekit.net/mwm0kqc.css");
 
 body {
   margin: 0;
@@ -18,7 +19,7 @@ textarea::placeholder {
   /* fonts */
   --font-jetbrains-mono: "JetBrains Mono";
   --h2: Inter;
-  --h1: degular, sans-serif;
+  --h1: "degular", sans-serif;
   --font-flow-rounded: "Flow Rounded";
   --font-degular-text: "Degular Text";
 
