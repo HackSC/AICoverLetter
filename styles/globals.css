@@ -25,13 +25,13 @@ textarea::placeholder {
 
   /* font sizes */
   --font-size-xs: 11.62px;
-  --font-size-sm: 22.92px;
-  --h3-size: 29.61px;
+  --font-size-sm: 15.92px;
+  --h3-size: 19.61px;
   --font-size-lg: 30.03px;
-  --h2-size: 33.43px;
-  --font-size-2xl: 56px;
-  --h1-size: 87.52px;
-  --font-size-4xl: 90.6px;
+  --h2-size: 23.43px;
+  --font-size-2xl: 36px;
+  --h1-size: 57.52px;
+  --font-size-4xl: 70.6px;
 
   /* Colors */
   --color-gray-100: rgba(255, 255, 255, 0.3);

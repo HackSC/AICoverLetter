@@ -112,12 +112,12 @@ export default function Home() {
   const scrollDown = () => {
     if (!mobile) {
       window.scrollTo({
-        top: 970,
+        top: 960,
         behavior: "smooth",
       });
     } else if (mobile) {
       window.scrollTo({
-        top: 1900,
+        top: 1520,
         behavior: "smooth",
       });
     }
@@ -204,7 +204,7 @@ export default function Home() {
             title={'Create your cover letter'} 
             subTitle={'Upload your resume, paste the job description, and create!'}
           />
-          <div className={styles.appSection}>
+          <div className={step >=2 ? styles.appSectionLonger : styles.appSection}>
             <div
               className={
                 mobile ? styles.uploadWrapperMobile : styles.uploadWrapper
@@ -325,7 +325,7 @@ export default function Home() {
                         // onChange={(e) => setJobDescription(e.target.value)}
                         className={styles.jobDescription}
                         autofocus
-                        rows={7}
+                        rows={11}
                       ></textarea>
                     </div>
                   </div>
@@ -391,10 +391,11 @@ export default function Home() {
                       <textarea
                         id="resultTextArea"
                         defaultValue={coverLetterText}
+                        placeholder="This is where your cover letter will appear!"
                         // onChange={(e) => setJobDescription(e.target.value)}
                         className={styles.resultJobTextArea}
                         autofocus
-                        rows={10}
+                        rows={16}
                       ></textarea>
                     </div>
                   </div>
