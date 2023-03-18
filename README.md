@@ -29,5 +29,3 @@ npm run dev and npm run build for production
 Feel free to open a PR if you see anything to improve on!
 
 # newAICoverLetter
-
-# newAICoverLetter
