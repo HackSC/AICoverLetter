@@ -27,5 +27,3 @@ npm run dev and npm run build for production
 3. Exploring which portion of the job description is the most useful
 
 Feel free to open a PR if you see anything to improve on!
-
-# newAICoverLetter
