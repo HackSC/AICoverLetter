@@ -1,13 +1,13 @@
-import { Configuration, OpenAIApi } from "openai";
-
+const { Configuration, OpenAIApi } = require("openai");
 const configuration = new Configuration({
   apiKey: process.env.OPENAI_API_KEY,
 });
+
 const openai = new OpenAIApi(configuration);
 
 //completion endpoint with temperature of 0.6
 //1 token generally corresponds to abbout 4 characters of common english text (default to 16 tokens)
-export default async function (req, res) {
+export default async function handler(req, res) {
   const completion = await openai.createCompletion({
     model: "text-davinci-003",
     prompt: generateAIPrompt(
