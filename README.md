@@ -7,13 +7,16 @@
 - [Intro](#intro)
 - [Install](#install)
 - [Usage](#usage)
+- [Currently Working On](#currently-working-on)
 - [Credits](#credits)
 - [License](#license)
 
 
 ## Intro
 
-# Setup
+<p align="center">
+  <img alt="Example usage" src="/media/demo.gif">
+</p>
 
 ## Install
 
@@ -26,17 +29,10 @@ Make sure you're using  node >= 16
 
 Sign up for an [OpenAI API key](https://platform.openai.com/overview) and store it in your environment.
 
-
-
-## Running
-
-The frontend is a Next.js webapp deployed to Vercel that uses our Pinecone index as a primary data store.
-
 ## Currently Working On
 
-1. Creating a better way to organize the resume information for GPT3 to digest
-2. Fine tuning the model with exemplar cover letters and resumes
-3. Exploring which portion of the job description is the most useful
+1. Fine tuning the model with exemplar cover letters and resumes
+2. Updating the UX 
 
 Feel free to open a PR if you see anything to improve on!
 
