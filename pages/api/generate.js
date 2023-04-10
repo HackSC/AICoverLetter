@@ -25,8 +25,8 @@ export default async function handler(req, res) {
 }
 
 function generateAIPrompt(resume, jobTitle, jobDescription) {
-  return `Write a SOPHISTICATED COVER LETTER based on the following Job Title, Job Description, and Resume: \n\n Job Title: ${jobTitle} \n\n Job Description: ${jobDescription}
-  \n\n Resume: ${trimSpaces(resume)}`;
+  return `Write a sophisticated cover letter that highlights the candidate's qualifications and experience from their resume for the indicated job title. In your letter, address how the candidate's skills align with the requirements of the job description, and provide specific examples of their experience. Additionally, discuss how the candidate's skills can contribute to the success of the company, and demonstrate their passion for their field. Base everything in the letter on the following Job Title, Job Description, and Resume: \n\n Job Title: ${jobTitle} \n\n Job Description: ${jobDescription}
+  \n\n Resume: ${trimSpaces(resume)} \n\n Don't autocomplete the resume, focus on the cover letter.`;
 }
 
 const trimSpaces = (str) => {

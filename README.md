@@ -1,24 +1,36 @@
-# GPT Cover Letter
+# GPT Cover Letter <!-- omit in toc -->
 
-Upload your resume and job description to generate a personalized cover letter
+> Personalized cover letters written by cutting edge AI. 🔥
 
-# Disclaimer
+[![NPM](https://img.shields.io/npm/v/openai.svg)](https://www.npmjs.com/package/openai) [![MIT License](https://img.shields.io/badge/license-MIT-blue)](https://github.com/transitive-bullshit/chatgpt-api/blob/main/license) [![Prettier Code Formatting](https://img.shields.io/badge/code_style-prettier-brightgreen.svg)](https://prettier.io)
 
-This is not an official OpenAI product. This is a personal project and is not affiliated with OpenAI in any way. Don't sue me
+- [Intro](#intro)
+- [Install](#install)
+- [Usage](#usage)
+- [Credits](#credits)
+- [License](#license)
+
+
+## Intro
 
 # Setup
 
 ## Install
 
-Run npm i in the root folder (make sure to use <= node 16)
+```bash
+npm install
+```
+Make sure you're using  node >= 16
 
-## API Key
+## Usage
 
-Add your OPENAI_API_KEY to a .env file
+Sign up for an [OpenAI API key](https://platform.openai.com/overview) and store it in your environment.
+
+
 
 ## Running
 
-npm run dev and npm run build for production
+The frontend is a Next.js webapp deployed to Vercel that uses our Pinecone index as a primary data store.
 
 ## Currently Working On
 
@@ -27,3 +39,14 @@ npm run dev and npm run build for production
 3. Exploring which portion of the job description is the most useful
 
 Feel free to open a PR if you see anything to improve on!
+
+
+## Credits
+- Huge thanks to [Reese Bretow](https://reesebretow.com/) for helping with the design 💪
+
+- [OpenAI](https://openai.com) for creating [GPT-3](https://openai.com/product/gpt-3/) 🔥
+## License
+
+MIT © [Danial Asaria](https://danialasaria.com/)
+
+If you found this project interesting, please consider [sponsoring me](https://github.com/sponsors/danialasaria) or <a href="https://twitter.com/danialasaria">following me on twitter <img src="https://storage.googleapis.com/saasify-assets/twitter-logo.svg" alt="twitter" height="24px" align="center"></a>
