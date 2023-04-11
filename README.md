@@ -1,6 +1,6 @@
 # GPT Cover Letter <!-- omit in toc -->
 
-> Personalized cover letters written by cutting edge AI. 🔥
+> Personalized cover letters written by cutting edge AI.
 
 [![NPM](https://img.shields.io/npm/v/openai.svg)](https://www.npmjs.com/package/openai) [![MIT License](https://img.shields.io/badge/license-MIT-blue)](https://github.com/transitive-bullshit/chatgpt-api/blob/main/license) [![Prettier Code Formatting](https://img.shields.io/badge/code_style-prettier-brightgreen.svg)](https://prettier.io)
 
@@ -13,6 +13,7 @@
 
 
 ## Intro
+An AI tool to generate a custom cover letter for each job you apply to, based on your resume and the job description. ✨
 
 <p align="center">
   <img alt="Example usage" src="/media/demo.gif">
