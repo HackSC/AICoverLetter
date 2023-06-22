@@ -5,7 +5,6 @@ const Footer = ({ mobile }) => {
   return (
     <div className={mobile ? styles.footerMobile : styles.footer}>
       Made with ❤️ by{" "}
-      {/*temporarily deciding against linktree as my website includes all links*/}
       <a style={{ color: "white" }} href="https://danialasaria.com/about">
         <u>Danial</u>
       </a>{" "}
