@@ -43,6 +43,15 @@ export default function Home() {
   }
 
   const handleUplodGenerateCoverLetterNavigationClick = () => {
+    debugger;
+    if (step === 1) {
+      const jobTitle = document.getElementById('jobTitleTextArea').value
+      const jobDescription = document.getElementById('jobDescriptionTextArea')
+        .value
+      if (jobTitle || jobDescription) {
+        generateCoverLetter();
+      }
+    }
     setFirstResumeClick(false)
     setStep(2)
   }
