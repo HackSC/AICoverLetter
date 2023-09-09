@@ -5,7 +5,7 @@ const Footer = ({ mobile }) => {
   return (
     <div className={mobile ? styles.footerMobile : styles.footer}>
       Made with ❤️ by{" "}
-      <a style={{ color: "white" }} href="https://danialasaria.com/about">
+      <a style={{ color: "white" }} href="https://danialasaria.com">
         <u>Danial</u>
       </a>{" "}
       and{" "}

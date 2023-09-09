@@ -11,7 +11,7 @@ const MobileMessage = () => {
       <div style={{ display: "inline-block" }}>
         <p>
           -{" "}
-          <a style={{ color: "white" }} href="https://danialasaria.com/about">
+          <a style={{ color: "white" }} href="https://danialasaria.com">
             <u>Danial</u>
           </a>{" "}
           and{" "}
