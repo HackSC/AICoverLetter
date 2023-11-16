@@ -616,6 +616,10 @@
   top: 80px;
 }
 
+.jobDescriptionArea {
+  margin-top: 34px !important;
+}
+
 .resultJobTextArea,
 .jobDescription {
   all: unset;

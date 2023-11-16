@@ -76,7 +76,7 @@ export default function Home() {
       .value
     getText(selectedFile).then(
       (text) => {
-        callGPT(text, jobDescription, jobTitle)
+        callPaLM(text, jobDescription, jobTitle)
       },
       (error) => {
         console.error(error)
@@ -89,11 +89,36 @@ export default function Home() {
     document.getElementById('file-upload').click()
   }
 
-  async function callGPT(extractedResumeText, jobDescription, jobTitle) {
+  // async function callGPT(extractedResumeText, jobDescription, jobTitle) {
+  //   setStep(2)
+  //   setLoading(true)
+  //   try {
+  //     const response = await fetch('/api/generate', {
+  //       method: 'POST',
+  //       headers: {
+  //         'Content-Type': 'application/json',
+  //       },
+  //       body: JSON.stringify({
+  //         resume: extractedResumeText,
+  //         jobTitle: jobTitle,
+  //         jobDescription: jobDescription,
+  //       }),
+  //     })
+  //     const data = await response.json()
+  //     const formattedResult = ltrim(data.result)
+  //     setCoverLetterText(formattedResult)
+  //     setStep(3)
+  //     setfirstResumeClick(true)
+  //   } catch (error) {
+  //     console.log(error)
+  //   }
+  //   setLoading(false)
+  // }
+  async function callPaLM(extractedResumeText, jobDescription, jobTitle) {
     setStep(2)
     setLoading(true)
     try {
-      const response = await fetch('/api/generate', {
+      const response = await fetch('/api/palmGenerate', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
