@@ -5,7 +5,6 @@ const { GoogleAuth } = require("google-auth-library");
 const MODEL_NAME = "models/text-bison-001";
 const API_KEY = process.env.PALM_API_KEY; // Ensure your API key is set in the environment variables
 
-// Initialize the PaLM API client
 const client = new TextServiceClient({
   authClient: new GoogleAuth().fromAPIKey(API_KEY),
 });
