@@ -1,93 +1,95 @@
-import styles from '../styles/Home.module.css'
-import { useEffect, useState } from 'react'
-import { getText, ltrim } from '../helperFunctions'
-import Footer from '@/components/Footer/Footer'
-import { Button } from '@nextui-org/react'
-import Header from '@/components/Header/Header'
-import Image from 'next/image'
-import superHeroResumes from 'public/images/superheroResumes.png'
-import uploadIcon from 'public/images/uploadIcon.svg'
-import StatBubble from '@/components/StatBubble/StatBubble'
-import CompanyDescription from '@/components/CompanyDescription/CompanyDescription'
-import CompanyTagLine from '@/components/CompanyTagLine/CompanyTagLine'
-import CoverLetterSectionHeader from '@/components/CoverLetterSectionHeader/CoverLetterSectionHeader'
+import styles from "../styles/Home.module.css";
+import { useEffect, useState } from "react";
+import { getText, ltrim } from "../helperFunctions";
+import Footer from "@/components/Footer/Footer";
+import { Button } from "@nextui-org/react";
+import Header from "@/components/Header/Header";
+import Image from "next/image";
+import superHeroResumes from "public/images/superheroResumes.png";
+import uploadIcon from "public/images/uploadIcon.svg";
+import StatBubble from "@/components/StatBubble/StatBubble";
+import CompanyDescription from "@/components/CompanyDescription/CompanyDescription";
+import CompanyTagLine from "@/components/CompanyTagLine/CompanyTagLine";
+import CoverLetterSectionHeader from "@/components/CoverLetterSectionHeader/CoverLetterSectionHeader";
 
 export default function Home() {
-  const [selectedFile, setSelectedFile] = useState(null)
-  const [coverLetterText, setCoverLetterText] = useState('')
-  const [step, setStep] = useState(0)
-  const [firstResumeClick, setFirstResumeClick] = useState(true)
-  const [mobile, setMobile] = useState(false)
-  const [loading, setLoading] = useState(false)
-  const [error, setError] = useState(null)
+  const [selectedFile, setSelectedFile] = useState(null);
+  const [coverLetterText, setCoverLetterText] = useState("");
+  const [step, setStep] = useState(0);
+  const [firstResumeClick, setFirstResumeClick] = useState(true);
+  const [mobile, setMobile] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     if (/Android|iPhone/i.test(navigator.userAgent)) {
       // This checks if the current device is in fact mobile
-      setMobile(true)
+      setMobile(true);
     }
-  }, [mobile])
+  }, [mobile]);
 
   const handleUplodResumeNavigationClick = () => {
     if (firstResumeClick == false && step != 0) {
-      setStep(0)
+      setStep(0);
     } else {
-      handleResumeUpload()
-      setFirstResumeClick(false)
+      handleResumeUpload();
+      setFirstResumeClick(false);
     }
-  }
+  };
 
   const handleUplodPasteJobDescriptionNavigationClick = () => {
-    setFirstResumeClick(false)
-    setStep(1)
-  }
+    setFirstResumeClick(false);
+    setStep(1);
+  };
 
   const handleUplodGenerateCoverLetterNavigationClick = () => {
     debugger;
     if (step === 1) {
-      const jobTitle = document.getElementById('jobTitleTextArea').value
-      const jobDescription = document.getElementById('jobDescriptionTextArea')
-        .value
+      const jobTitle = document.getElementById("jobTitleTextArea").value;
+      const jobDescription = document.getElementById(
+        "jobDescriptionTextArea"
+      ).value;
       if (jobTitle || jobDescription) {
         generateCoverLetter();
       }
     }
-    setFirstResumeClick(false)
-    setStep(2)
-  }
+    setFirstResumeClick(false);
+    setStep(2);
+  };
 
   //after upload, get file and display some data, remove possible errors
   const handleFileUpload = (event) => {
     //to prevent typescript null value error
-    if (!event.target.files) return
-    setError(null)
-    setSelectedFile(event.target.files[0])
-    setStep(1)
-  }
+    if (!event.target.files) return;
+    setError(null);
+    setSelectedFile(event.target.files[0]);
+    setStep(1);
+  };
 
   //after submission, set output text and show error element if incorrect file format
   const generateCoverLetter = () => {
     if (!selectedFile) {
       // setError(`Please upload your resume`);
-      return
+      return;
     }
-    const jobTitle = document.getElementById('jobTitleTextArea').value
-    const jobDescription = document.getElementById('jobDescriptionTextArea')
-      .value
+    const jobTitle = document.getElementById("jobTitleTextArea").value;
+    const jobDescription = document.getElementById(
+      "jobDescriptionTextArea"
+    ).value;
     getText(selectedFile).then(
       (text) => {
-        callPaLM(text, jobDescription, jobTitle)
+        callPaLM(text, jobDescription, jobTitle);
       },
       (error) => {
-        console.error(error)
-        setError(`File could not be uploaded due to this error: ${error}`)
-      },
-    )
-  }
+        console.error(error);
+        setError(`File could not be uploaded due to this error: ${error}`);
+      }
+    );
+  };
 
   const handleResumeUpload = () => {
-    document.getElementById('file-upload').click()
-  }
+    document.getElementById("file-upload").click();
+  };
 
   // async function callGPT(extractedResumeText, jobDescription, jobTitle) {
   //   setStep(2)
@@ -115,44 +117,44 @@ export default function Home() {
   //   setLoading(false)
   // }
   async function callPaLM(extractedResumeText, jobDescription, jobTitle) {
-    setStep(2)
-    setLoading(true)
+    setStep(2);
+    setLoading(true);
     try {
-      const response = await fetch('/api/palmGenerate', {
-        method: 'POST',
+      const response = await fetch("/api/palmGenerate", {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify({
           resume: extractedResumeText,
           jobTitle: jobTitle,
           jobDescription: jobDescription,
         }),
-      })
-      const data = await response.json()
-      const formattedResult = ltrim(data.result)
-      setCoverLetterText(formattedResult)
-      setStep(3)
-      setfirstResumeClick(true)
+      });
+      const data = await response.json();
+      const formattedResult = ltrim(data.result);
+      setCoverLetterText(formattedResult);
+      setStep(3);
+      setfirstResumeClick(true);
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
-    setLoading(false)
+    setLoading(false);
   }
 
   const scrollDown = () => {
     if (!mobile) {
       window.scrollTo({
         top: 960,
-        behavior: 'smooth',
-      })
+        behavior: "smooth",
+      });
     } else if (mobile) {
       window.scrollTo({
         top: 1520,
-        behavior: 'smooth',
-      })
+        behavior: "smooth",
+      });
     }
-  }
+  };
 
   return (
     <>
@@ -177,11 +179,11 @@ export default function Home() {
               </div>
               <CompanyTagLine
                 mobile={mobile}
-                tagLine={'Welcome to the future of job applications.'}
+                tagLine={"Welcome to the future of job applications."}
               />
               <CompanyDescription
                 description={
-                  'It only takes 30 seconds to get a personalized cover letter highlighting your unique skills and experience using AI.'
+                  "It only takes 30 seconds to get a personalized cover letter highlighting your unique skills and experience using AI."
                 }
               />
               <Button
@@ -207,22 +209,22 @@ export default function Home() {
           className={mobile ? styles.statsSectionMobile : styles.statsSection}
         >
           <StatBubble
-            stat={'of job seekers do not personalize their cover letter'}
+            stat={"of job seekers do not personalize their cover letter"}
             percent={86}
             mobile={mobile}
           />
           <StatBubble
-            stat={'of recruiters prefer candidates with cover letters'}
+            stat={"of recruiters prefer candidates with cover letters"}
             percent={83}
             mobile={mobile}
           />
           <StatBubble
-            stat={'of cover letters have grammatical errors'}
+            stat={"of cover letters have grammatical errors"}
             percent={59}
             mobile={mobile}
           />
           <StatBubble
-            stat={'of big tech companies require cover letters'}
+            stat={"of big tech companies require cover letters"}
             percent={48}
             mobile={mobile}
           />
@@ -232,9 +234,9 @@ export default function Home() {
         >
           <CoverLetterSectionHeader
             mobile={mobile}
-            title={'Create your cover letter'}
+            title={"Create your cover letter"}
             subTitle={
-              'Upload your resume, paste the job description, and create!'
+              "Upload your resume, paste the job description, and create!"
             }
           />
           <div
@@ -285,7 +287,7 @@ export default function Home() {
                       id="file-upload"
                       onChange={handleFileUpload}
                       accept="application/pdf"
-                      style={{ display: 'none' }}
+                      style={{ display: "none" }}
                     />
                   </label>
                   <div
@@ -311,16 +313,16 @@ export default function Home() {
                       <p className={styles.dRAGDROPYOURRESUME}>
                         <span
                           className={styles.dRAGDROP}
-                        >{`Browse files on your computer`}</span>
+                        >{`Upload your resume`}</span>
                       </p>
                       <p className={styles.uSsjsd}>
-                        <span>
+                        {/* <span>
                           {`or `}
                           <span className={styles.browseFiles}>
                             browse files
-                          </span>{' '}
+                          </span>{" "}
                           on your computer
-                        </span>
+                        </span> */}
                       </p>
                     </div>
                   </div>
@@ -449,5 +451,5 @@ export default function Home() {
         <Footer mobile={mobile} />
       </div>
     </>
-  )
+  );
 }
