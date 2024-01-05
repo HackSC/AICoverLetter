@@ -53,7 +53,7 @@ async function generateTextWithPaLM(prompt) {
 
 // Function to generate the AI prompt for a cover letter
 function generateAIPrompt(resume, jobTitle, jobDescription) {
-  return `Write a sophisticated cover letter as specific as possible to the companies mission, without fluff, that is 3-4 paragraphs that highlights the candidate's qualifications and experience from their resume for the indicated job title. In your letter, address how the candidate's skills align with the requirements of the job description, and provide specific examples of their experience. Additionally, discuss how the candidate's skills can contribute to the success of the company, why this job, and demonstrate their passion for their field. Base everything in the letter on the following Job Title, Job Description, and Resume: \n\n Job Title: ${jobTitle} \n\n Job Description: ${jobDescription}
+  return `Write a sophisticated cover letter as specific as possible to the companies mission, without fluff, that is 4-5 paragraphs that highlights the candidate's qualifications and experience from their resume for the indicated job title. In your letter, address how the candidate's skills align with the requirements of the job description, and provide specific examples of their experience. Additionally, discuss how the candidate's skills can contribute to the success of the company, why this job, and demonstrate their passion for their field. Base everything in the letter on the following Job Title, Job Description, and Resume: \n\n Job Title: ${jobTitle} \n\n Job Description: ${jobDescription}
   \n\n Resume: ${trimSpaces(
     resume
   )} \n\n Don't autocomplete the resume, focus on the cover letter.`;
