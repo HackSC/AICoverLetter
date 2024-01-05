@@ -2,7 +2,7 @@ const { TextServiceClient } = require("@google-ai/generativelanguage").v1beta2;
 const { GoogleAuth } = require("google-auth-library");
 
 // Set up the model and API key for PaLM
-const MODEL_NAME = "models/text-bison-001";
+const MODEL_NAME = "models/text-bison";
 const API_KEY = process.env.PALM_API_KEY; // Ensure your API key is set in the environment variables
 
 const client = new TextServiceClient({
