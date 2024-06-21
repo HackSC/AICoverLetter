@@ -2,6 +2,7 @@ import Head from "next/head";
 import "../styles/globals.css";
 import { GoogleAnalytics } from "nextjs-google-analytics";
 import Layout from "../components/Layout/Layout.js";
+import { Analytics } from "@vercel/analytics/react"
 
 function MyApp({ Component, pageProps }) {
   return (
@@ -18,6 +19,7 @@ function MyApp({ Component, pageProps }) {
       </Head>
       <Layout>
         <GoogleAnalytics trackPageViews gaMeasurementId={"G-W621EQN0KS"} />
+        <Analytics />
         <Component {...pageProps} />
       </Layout>
     </>
